@@ -1,0 +1,11 @@
+;
+; テストプログラム１(extern)
+;                    2000.4.29
+EXTERN   START
+         CALL  GSUB1
+         CALL  GSUB2
+         DREG  MSG
+         RET
+;
+MSG      DC    'EXTERN-E'
+         END

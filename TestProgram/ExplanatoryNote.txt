@@ -1,0 +1,52 @@
+(1) “アセンブラ言語の仕様”のサンプルプログラムのメインと副プログラム
+      smain.cas
+      count1.cas
+
+  アセンブルと実行
+     >casl2 smain
+     >casl2 count1
+     >run   smain
+
+(2) 外部参照の例題
+    extern から gsub1 と gsub2 を CALLし gsub1 から gsub11 を CALL しているプログラム
+      extern.cas
+      gsub1.cas
+      gsub11.cas
+      gsub2.cas
+
+  アセンブルと実行
+     >casl2 extern
+     >casl2 gsub1
+     >casl2 gsub2
+     >casl2 gsub11
+     >run   extern
+
+(3) IN と OUT の例題
+      sample1.cas
+
+  アセンブルと実行
+     >casl2 sample1
+     >run   sample1
+
+(4) ADD と SUB の例題
+      sample2.cas
+
+  アセンブルと実行
+     >casl2 sample2
+     >run   sample2
+
+(5) OVERFLOWの例題
+      sample3.cas
+
+  アセンブルと実行
+     >casl2 sample3
+     >run   sample3
+
+(6）RPUSHとRPOPの例題
+      sample4.cas
+
+  アセンブルと実行
+     >casl2 sample4
+     >run   sample4
+
+                                  以上

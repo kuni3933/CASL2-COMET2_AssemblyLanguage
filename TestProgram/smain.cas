@@ -1,0 +1,11 @@
+;
+; サンプル・プログラム　メイン
+;
+SMAIN   START
+        LD    GR1,=#1111
+        CALL  COUNT1
+        DREG  MSG
+        RET
+;
+MSG     DC    '*Result*'
+        END

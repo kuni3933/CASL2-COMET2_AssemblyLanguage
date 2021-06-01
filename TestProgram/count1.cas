@@ -1,0 +1,21 @@
+;
+; サンプル・プログラム
+;                    2000.5.8
+COUNT1  START     ;
+;       Input     GR1:Bits to be tested　　　　
+;       Process   Count '1' bits in GR1
+;       Output    GR0:Number of '1' bits in GR1
+        PUSH      0,GR1
+        PUSH      0,GR2
+        SUBA      GR2,GR2       Count = 0
+        AND       GR1,GR1       Test if all zeros or not
+        JZE       RETURN        Return if all zeros  
+MORE    LAD       GR2,1,GR2     Count += 1
+        LAD       GR0,-1,GR1    Change
+        AND       GR1,GR0         one '1' to '0'
+        JNZ       MORE          Loop if not all zeros
+RETURN  LD        GR0,GR2       GR0 = Count
+        POP       GR2
+        POP       GR1
+        RET       ;             Return to caller
+        END       ;

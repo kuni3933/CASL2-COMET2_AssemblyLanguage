@@ -1,0 +1,30 @@
+;
+; サンプルプログラム。
+;                    2000.5.05
+SAMPLE1  START
+         LD    GR1,=2
+INLOOP   IN    INAREA,INLENGTH
+         LD    GR0,INLENGTH
+         CPA   GR0,=-1
+         JZE   RETURN
+         CPA   GR0,=0
+         JZE   NEXT
+         ST    GR0,OUTLENGT
+         LAD   GR2,0
+DATAMV   LD    GR0,INAREA,GR2
+         ST    GR0,OUTAREA,GR2
+         LAD   GR2,1,GR2
+         CPA   GR2,INLENGTH
+         JNZ   DATAMV
+         OUT   OUTAREA,OUTLENGT
+;
+NEXT     LAD   GR1,-1,GR1
+         LD    GR1,GR1
+         JNZ   INLOOP
+RETURN   RET
+;
+INAREA   DS    256
+INLENGTH DS    1
+OUTAREA  DS    256
+OUTLENGT DS    1
+         END

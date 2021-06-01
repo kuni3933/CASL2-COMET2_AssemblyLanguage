@@ -1,0 +1,26 @@
+;
+; サンプルプログラム(OVF)
+;                    2000.5.6
+SAMPLE3 START
+        LD    GR0,=32765
+        LD    GR1,=1
+LOOP0   ADDA  GR0,GR1
+        DREG  DREG0
+        JOV   OUTMSG0
+        JUMP  LOOP0
+OUTMSG0 DREG  OVFMSG0
+;
+        LD    GR0,=-32765
+        LD    GR1,=1
+LOOP1   SUBA  GR0,GR1
+        DREG  DREG1
+        JOV   OUTMSG1
+        JUMP  LOOP1
+OUTMSG1 DREG  OVFMSG1
+        RET
+;
+OVFMSG0 DC    'OVERFLOW'
+DREG0   DC    'ADDA****'
+OVFMSG1 DC    'OVERFLOW'
+DREG1   DC    'SUBA****'
+        END

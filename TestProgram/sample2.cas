@@ -1,0 +1,26 @@
+;
+; サンプルプログラム2(ADDA,ADDL)
+;                    2000.5.6
+SAMPLE2 START
+        LD    GR1,=256
+        LD    GR2,=512
+        LD    GR3,=#1000
+        LD    GR4,=#2000
+;
+        ADDA  GR1,GR2
+        DREG  MSG0
+        ADDL  GR3,GR4
+        DREG  MSG1
+        LD    GR5,=768      ;aaaa
+        LD    GR6,=512      ;dddd
+        SUBA  GR5,GR6        ;ddddd
+        DREG  MSG2           ;eeeeee
+        SUBL  GR6,=256
+        DREG  MSG3
+        RET
+;
+MSG0   DC    'NO----''0' 
+MSG1   DC    'NO----''1' 
+MSG2   DC    'NO----''2' 
+MSG3   DC    'NO----''3' 
+       END

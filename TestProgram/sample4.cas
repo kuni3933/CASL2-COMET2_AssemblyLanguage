@@ -1,0 +1,36 @@
+;
+; サンプルプログラム(RPUSH,RPOP)
+;                    2001.4.21
+SAMPLE4 START
+        LD    GR0,=0
+        LD    GR1,=1
+        LD    GR2,=2
+        LD    GR3,=3
+        LD    GR4,=4
+        LD    GR5,=5
+        LD    GR6,=6
+        LD    GR7,=7
+        DREG  DREG0
+        CALL  SUB
+        DREG  DREG1
+        RET
+;
+SUB     RPUSH
+        DREG  DSUB0
+        LD    GR0,=10
+        LD    GR1,=11
+        LD    GR2,=12
+        LD    GR3,=13
+        LD    GR4,=14
+        LD    GR5,=15
+        LD    GR6,=16
+        LD    GR7,=17
+        DREG  DSUB1
+        RPOP
+        RET
+;
+DREG0   DC    'BEF-CALL'
+DREG1   DC    'AFT-CALL'
+DSUB0   DC    'ST-SUB  '
+DSUB1   DC    'STP-SUB '
+        END

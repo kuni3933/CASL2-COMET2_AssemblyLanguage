@@ -1,0 +1,10 @@
+;
+; テストプログラム１(G sub1)
+;                    2000.4.29
+GSUB1    START
+         CALL  GSUB11
+         DREG  MSG
+         RET
+;
+MSG      DC    '*G sub1*'
+         END
