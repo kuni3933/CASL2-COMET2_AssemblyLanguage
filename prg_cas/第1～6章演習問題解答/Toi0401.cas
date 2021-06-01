@@ -1,0 +1,15 @@
+TOI0401 START
+        RPUSH
+;
+        LD      GR1,=100
+        LD      GR2,=200
+;
+        SUBA    GR1,GR2
+        JPL     PLUS
+        OUT     MSG,LEN
+PLUS    RPOP
+;
+        RET
+MSG     DC      'NOT PLUS'
+LEN     DC      8
+        END

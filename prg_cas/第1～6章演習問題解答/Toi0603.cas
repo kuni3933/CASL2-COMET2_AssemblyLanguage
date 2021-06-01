@@ -1,0 +1,24 @@
+TOI0603 START
+        RPUSH
+        LAD     GR1,3
+        LAD     GR2,10
+        CALL    MULT            ; 3Å~10
+        ADDA    GR1,=5          ; (3Å~10)Å{5
+        CALL    MULT            ; ((3Å~10)Å{5)Å~10î{
+        RPOP
+        RET
+;
+MULT    PUSH    0,GR2
+        PUSH    0,GR3
+        LD      GR3,GR1
+        LAD     GR1,0           ;ä|éZåãâ ópÇÃÉåÉWÉXÉ^ÇÉNÉäÉA
+LOOP    CPA     GR2,=0
+        JZE     FIN
+        ADDA    GR1,GR3         ;ä|ÇØÇÁÇÍÇÈêîÇâ¡Ç¶ÇÈ
+        LAD     GR2,-1,GR2      ;ä|ÇØÇÈêîÇ1å∏ÇÁÇ∑
+        JUMP    LOOP
+FIN     POP     GR3
+        POP     GR2
+        RET
+;
+        END

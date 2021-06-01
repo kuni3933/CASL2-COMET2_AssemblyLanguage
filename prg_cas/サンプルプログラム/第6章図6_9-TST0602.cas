@@ -1,0 +1,35 @@
+;ファイル名をTST0602.CASに変更するか，
+;TST0602.CASにコピーして使用してください．
+;
+;
+;図6.9　1回のDISP呼出しで全桁表示するように改造したプログラム
+;
+TST0602 START
+        RPUSH
+        LAD     GR1,#369C
+        CALL    DISP
+        RPOP
+        RET
+;
+DISP    RPUSH
+        CALL    DISP1           ;下位4ビットを16進数で出力
+        SRL     GR1,4           ;4ビット分右シフト
+        CALL    DISP1
+        SRL     GR1,4
+        CALL    DISP1
+        SRL     GR1,4
+        CALL    DISP1
+        RPOP
+        RET
+;
+DISP1   RPUSH
+        AND     GR1,=#000F      ;下位4ビットだけ取り出す
+        LD      GR2,HEX,GR1     ;16進数の文字に変換
+        ST      GR2,DATA
+FIN     OUT     DATA,LEN
+        RPOP
+        RET
+LEN     DC      1
+DATA    DS      1
+HEX     DC      '0123456789ABCDEF'
+        END

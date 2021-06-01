@@ -1,0 +1,14 @@
+;ファイル名をDSPTST.CASに変更するか，
+;DSPTST.CASにコピーして使用してください．
+;
+DSPTST  START
+        RPUSH
+        LD      GR1,=9
+        CALL    DECDSP
+        LD      GR1,=100
+        CALL    DECDSP
+        LD      GR1,=12345
+        CALL    DECDSP
+        RPOP
+        RET
+        END

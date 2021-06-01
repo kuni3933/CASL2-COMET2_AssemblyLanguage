@@ -1,0 +1,11 @@
+MEMCPY  START
+        RPUSH
+LOOP    LD      GR4,0,GR2
+        ST      GR4,0,GR3
+        LAD     GR2,1,GR2
+        LAD     GR3,1,GR3
+        SUBA    GR1,=1
+        JNZ     LOOP
+        RPOP
+        RET
+        END

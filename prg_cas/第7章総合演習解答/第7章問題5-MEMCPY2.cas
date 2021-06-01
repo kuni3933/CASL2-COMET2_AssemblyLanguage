@@ -1,0 +1,31 @@
+;ファイル名をMEMCPY2.CASに変更するか，
+;MEMCPY2.CASにコピーして使用してください．
+;
+MEMCPY2 START
+        RPUSH
+        CPL     GR2,GR3
+        JZE     FIN
+        JPL     UPCPY
+        JMI     DWNCPY
+;
+UPCPY   LD      GR4,0,GR2
+        ST      GR4,0,GR3
+        LAD     GR2,1,GR2
+        LAD     GR3,1,GR3
+        SUBL    GR1,=1
+        JNZ     UPCPY
+        JUMP    FIN
+;
+DWNCPY  ADDL    GR2,GR1
+        ADDL    GR3,GR1
+LOOPD   LAD     GR2,-1,GR2
+        LAD     GR3,-1,GR3
+        LD      GR4,0,GR2
+        ST      GR4,0,GR3
+        SUBL    GR1,=1
+        JNZ     LOOPD
+        JUMP    FIN
+;
+FIN     RPOP
+        RET
+        END

@@ -1,0 +1,12 @@
+TOI0502 START
+        RPUSH
+;
+        LAD     GR1,0         ; 合計の初期化
+LOOP    ADDA    GR1,=7        ; 繰返し処理の開始
+        CPA     GR1,=100      ; 合計が100より小さいか？
+        JMI     LOOP          ; 繰返し処理を続けるか判定（後判定）
+;
+        RPOP
+        RET
+;
+        END

@@ -1,0 +1,13 @@
+PRG0601 START
+        RPUSH
+        CALL    PRINT           ;副プログラムの呼出し1
+        CALL    PRINT           ;副プログラムの呼出し2
+        CALL    PRINT           ;副プログラムの呼出し3
+        RPOP
+        RET
+;
+PRINT   OUT     MSG,LEN         ;副プログラムの入口
+        RET                     ;副プログラムの出口
+MSG     DC      'Subroutine Test'
+LEN     DC      15
+        END

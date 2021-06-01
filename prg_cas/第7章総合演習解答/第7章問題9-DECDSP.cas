@@ -1,0 +1,35 @@
+;ファイル名をDECDSP.CASに変更するか，
+;DECDSP.CASにコピーして使用してください．
+;
+DECDSP  START
+        RPUSH
+;
+        LD      GR3,=0          ;変換された桁数を初期化
+;
+LOOP2   LD      GR2,=0
+LOOP1   CPL     GR1,=10
+        JMI     LP1FIN
+        SUBL    GR1,=10
+        ADDL    GR2,=1
+        JUMP    LOOP1
+LP1FIN  ADDL    GR1,='0'
+        PUSH    0,GR1
+        ADDL    GR3,=1
+        LD      GR1,GR2
+        JNZ     LOOP2
+;
+;       変換した結果を出力領域に格納して画面に出力する
+        ST      GR3,LEN
+        LD      GR2,=0
+LOOP3   POP     GR1
+        ST      GR1,DATA,GR2
+        ADDL    GR2,=1
+        SUBL    GR3,=1
+        JNZ     LOOP3
+        OUT     DATA,LEN
+;
+        RPOP
+        RET
+LEN     DS      1
+DATA    DS      10
+        END

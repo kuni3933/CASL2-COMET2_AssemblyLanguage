@@ -1,0 +1,10 @@
+TOI0104 START
+        RPUSH
+        LAD     GR7,#1111   ;GR7‚É16i”1111‚ðŠi”[
+        LAD     GR7,#2222   ;GR7‚É16i”2222‚ðŠi”[
+        LAD     GR7,#3333   ;GR7‚É16i”3333‚ðŠi”[
+        LAD     GR7,#4444   ;GR7‚É16i”4444‚ðŠi”[
+        LAD     GR7,#5555   ;GR7‚É16i”5555‚ðŠi”[
+        RPOP
+        RET
+        END

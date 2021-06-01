@@ -1,0 +1,25 @@
+TOI0402 START
+        RPUSH
+;
+        LD      GR1,=50
+;
+        CPA     GR1,=9          ; 9 より大きいか？
+        JPL     CHK2
+        LD      GR2,=1
+        JUMP    FIN
+CHK2    CPA     GR1,=99         ; 99 より大きいか？
+        JPL     CHK3
+        LD      GR2,=2
+        JUMP    FIN
+CHK3    CPA     GR1,=999        ; 999 より大きいか？
+        JPL     CHK4
+        LD      GR2,=3
+        JUMP    FIN
+CHK4    CPA     GR1,=9999       ; 9999 より大きいか？
+        JPL     CHK5
+        LD      GR2,=4
+        JUMP    FIN
+CHK5    LD      GR2,=5          ; それ以外
+FIN     RPOP
+        RET
+        END

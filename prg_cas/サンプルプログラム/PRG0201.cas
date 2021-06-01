@@ -1,0 +1,11 @@
+PRG0201 START
+        RPUSH
+        LAD     GR1,#1234
+        LAD     GR2,1234
+        ST      GR1,DATA1       ; GR1の値をDATA1に格納する
+        ST      GR2,DATA2       ; GR2の値をDATA2に格納する
+        RPOP
+        RET
+DATA1   DS      2               ; 2語分の領域（場所）を確保
+DATA2   DS      3               ; 3語分の領域（場所）を確保
+        END

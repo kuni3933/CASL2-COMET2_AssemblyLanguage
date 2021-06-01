@@ -1,0 +1,33 @@
+;ファイル名をMULT.CASに変更するか，
+;MULT.CASにコピーして使用してください．
+;
+;    掛け算サブルーチン
+;
+;       渡される値
+;          GR1:掛けられる数
+;          GR2:掛ける数
+;       戻り値
+;          GR1:掛け算の結果
+;
+MULT   START
+        PUSH    0,GR2
+        PUSH    0,GR3
+        PUSH    0,GR4
+;
+        LAD     GR4,0           ;
+        LAD     GR3,0           ;
+LOOP    SRL     GR2,1           ;GR2のビット0をOFに送り出す
+        JOV     ADD             ;OF=1なら加算を行う
+        JUMP    NOADD           ;
+ADD     ADDL    GR4,GR1         ;
+NOADD   SLL     GR1,1           ;GR1を2倍する
+        ADDL    GR3,=1          ;
+        CPL     GR3,=16
+        JNZ     LOOP            ;
+        LD      GR1,GR4         ;結果をGR1に移す
+;
+        POP     GR4
+        POP     GR3
+        POP     GR2
+        RET
+        END

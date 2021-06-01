@@ -1,0 +1,22 @@
+;ファイル名をPRTYTST.CASに変更するか，
+;PRTYTST.CASにコピーして使用してください．
+;
+PRTYTST START
+        RPUSH
+;
+        LD      GR1,=#0000
+        CALL    PARITY
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+;
+        LD      GR1,=#1234
+        CALL    PARITY
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+;
+        LD      GR1,=#5678
+        CALL    PARITY
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+;
+        RPOP
+        RET
+;MSG     DC      'PARITY  '      ; この行を有効にすれば結果表示できる
+        END

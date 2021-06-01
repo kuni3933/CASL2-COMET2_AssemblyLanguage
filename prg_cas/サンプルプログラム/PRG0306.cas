@@ -1,0 +1,25 @@
+PRG0306 START
+        RPUSH
+;
+        LAD     GR0,#CDEF
+        LAD     GR1,#0F0F
+        LAD     GR2,#CDEF
+        LAD     GR3,#0F0F
+        LAD     GR4,#CDEF
+        LAD     GR5,#0F0F
+        LAD     GR6,#CDEF
+        LAD     GR7,#0F0F
+;
+        SLL     GR0,2       ; 論理左シフト（符号ビットが1の値）
+        SLL     GR1,2       ; 論理左シフト（符号ビットが0の値）
+        SRL     GR2,2       ; 論理右シフト（符号ビットが1の値）
+        SRL     GR3,2       ; 論理右シフト（符号ビットが0の値）
+;
+        SLA     GR4,2       ; 算術左シフト（符号ビットが1の値）
+        SLA     GR5,2       ; 算術左シフト（符号ビットが0の値）
+        SRA     GR6,2       ; 算術右シフト（符号ビットが1の値）
+        SRA     GR7,2       ; 算術右シフト（符号ビットが0の値）
+;
+        RPOP
+        RET
+        END

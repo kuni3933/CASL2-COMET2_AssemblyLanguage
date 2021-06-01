@@ -1,0 +1,24 @@
+;ファイル名をSRTMAIN.CASに変更するか，
+;SRTMAIN.CASにコピーして使用してください．
+;
+SRTMAIN START
+        RPUSH
+;
+        LD      GR1,LEN
+        LAD     GR2,DATA
+        OUT     MSG1,LMSG1
+        CALL    ALLDISP
+        CALL    SORT
+        OUT     MSG2,LMSG2
+        CALL    ALLDISP
+;
+        RPOP
+        RET
+;
+DATA    DC      2,4,6,8,0,9,7,5,3,1
+LEN     DC      10
+MSG1    DC      'Input Data:'
+LMSG1   DC      11
+MSG2    DC      'Sort Result:'
+LMSG2   DC      12
+        END

@@ -1,0 +1,19 @@
+TOI0501  START
+         RPUSH
+;
+         LAD     GR1,0           ; カウンタ初期化
+LOOP     LD      GR2,='0'        ; 繰返し処理の始まり
+         ADDA    GR2,GR1
+         ST      GR2,CNT
+         OUT     BUF,LEN
+         ADDA    GR1,=1
+         CPA     GR1,=9
+         JMI     LOOP            ；繰返し処理を続けるかどうか判定
+;
+         RPOP
+         RET
+;
+LEN      DC      9
+BUF      DC      'Count = '
+CNT      DC      ' '
+         END

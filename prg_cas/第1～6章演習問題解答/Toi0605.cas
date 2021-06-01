@@ -1,0 +1,27 @@
+TOI0605 START
+        RPUSH
+        LAD     GR2,DATA
+        LD      GR1,0,GR2
+        CALL    DISP
+        RPOP
+        RET
+DATA    DC      #1234
+;
+DISP    RPUSH
+        LD      GR3,GR1         ;渡された値をGR3にコピー
+        LAD     GR4,3           ;桁を表す
+DISPLP  LD      GR1,GR3
+        AND     GR1,=#000F      ;下位4ビットだけ取り出す
+        LD      GR2,DISPHEX,GR1 ;16進数の文字に変換
+        ST      GR2,DISPDAT,GR4 ;DATA1+(GR4)番地に，その桁の16進数を格納
+        SRL     GR3,4
+        SUBL    GR4,=1
+        CPL     GR4,=-1
+        JNZ     DISPLP
+        OUT     DISPDAT,DISPLEN
+        RPOP
+        RET
+DISPLEN DC      4
+DISPDAT DS      4
+DISPHEX DC      '0123456789ABCDEF'
+        END

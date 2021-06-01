@@ -1,0 +1,37 @@
+TOI0607 START
+        RPUSH
+        LAD     GR1,PARM
+        LAD     GR2,DATA
+        ST      GR2,0,GR1       ; PARM+0番地に文字列の先頭番地を格納
+        LD      GR2,LEN
+        ST      GR2,1,GR1       ; PARM+1番地に文字列の文字数を格納
+        LD      GR2,='i'
+        ST      GR2,2,GR1       ; PARM+2番地に'?'に置き換える文字を格納
+        OUT     DATA,LEN
+        CALL    STRCHG
+        OUT     DATA,LEN
+        RPOP
+        RET
+DATA    DC      'This is a pen'
+LEN     DC      13
+PARM    DS      3
+;
+STRCHG  RPUSH
+        LD      GR3,2,GR1       ; GR3に置き換える文字を設定
+        LD      GR2,1,GR1       ; GR2に文字数を設定
+        LD      GR1,0,GR1       ; GR1に文字列の先頭番地を設定
+        ADDL    GR2,GR1
+        LAD     GR2,1,GR2       ; GR2に文字列の最終番地+1を設定
+        LD      GR4,CHGCHAR
+STRLOOP LD      GR5,0,GR1
+        CPL     GR5,GR3
+        JNZ     NOCHG           ; 変換する文字なら
+        ST      GR4,0,GR1       ;     CHGCHARで定義した文字を格納
+NOCHG   LAD     GR1,1,GR1
+        CPL     GR1,GR2
+        JNZ     STRLOOP
+        RPOP
+CHGCHAR DC      '?'             ; 置き換える文字を定義
+        RET
+;
+        END

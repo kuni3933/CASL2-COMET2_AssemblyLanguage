@@ -1,0 +1,10 @@
+TOI0205 START
+        RPUSH
+        IN      DATA,LEN        ;キーボードから文字列を入力
+        OUT     DATA,LEN2       ;先頭の1文字だけ出力
+        RPOP
+        RET
+LEN     DS      1
+DATA    DS      256             ;INマクロでは256語分必要
+LEN2    DC      1
+        END

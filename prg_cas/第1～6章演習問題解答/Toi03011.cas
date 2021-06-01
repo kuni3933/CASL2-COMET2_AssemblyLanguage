@@ -1,0 +1,13 @@
+TOI03011 START
+        RPUSH
+;
+        LD      GR1,=30
+        LD      GR2,=7
+        LD      GR3,=-12
+        LD      GR4,=27
+; (1)
+        ADDA    GR1,GR2         ; 30+7=37
+;
+        RPOP
+        RET
+        END

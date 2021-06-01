@@ -1,0 +1,18 @@
+;ファイル名をDCHKTST.CASに変更するか，
+;DCHKTST.CASにコピーして使用してください．
+;
+DCHKTST START
+        RPUSH
+        LAD     GR1,DATA
+        LD      GR2,LEN
+        CALL    DATACHK
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+        RPOP
+        RET
+LEN     DC      4
+DATA    DC      #6432
+        DC      #3C3C
+        DC      #3246
+        DC      #3232
+;MSG     DC      'Result  '      ; この行を有効にすれば結果表示できる
+        END

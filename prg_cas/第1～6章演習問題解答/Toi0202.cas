@@ -1,0 +1,11 @@
+TOI0202 START
+        RPUSH
+        LAD     GR0,#1234
+        ST      GR0,DATA
+        LD      GR2,DATA        ;Žå‹L‰¯‚ÌDATA‚Ì’l‚ð“Çž‚Þ
+        LD      GR4,DATA
+        LD      GR6,DATA
+        RPOP
+        RET
+DATA    DS      1               ;1Œê•ª‚Ì—Ìˆæ‚ðŠm•Û
+        END

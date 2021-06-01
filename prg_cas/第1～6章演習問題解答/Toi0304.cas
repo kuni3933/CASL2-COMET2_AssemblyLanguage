@@ -1,0 +1,10 @@
+TOI0304 START
+        RPUSH
+;
+        LD      GR1,=2
+        XOR     GR1,=#FFFF      ; ƒrƒbƒg”½“]
+        ADDL    GR1,=1          ; 1 ‚ð‘«‚·
+;
+        RPOP
+        RET
+        END

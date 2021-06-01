@@ -1,0 +1,34 @@
+TOI0609 START
+        RPUSH
+        LAD     GR1,DATA
+        LD      GR2,LEN
+        OUT     DATA,LEN
+        CALL    REV
+        OUT     DATA,LEN
+        RPOP
+        RET
+DATA    DC      'ABCDEFG'
+LEN     DC      7
+;
+REV     RPUSH
+        LD      GR4,GR1         ;
+        LD      GR5,GR2         ;
+REVLP1  SUBL    GR2,=1
+        JMI     REV2
+        LD      GR3,0,GR1       ; 文字を1文字読み込む
+        PUSH    0,GR3           ; 文字をスタックに積む
+        LAD     GR1,1,GR1
+        JUMP    REVLP1
+;
+REV2    LD      GR1,GR4
+        LD      GR2,GR5
+REVLP2  SUBL    GR2,=1
+        JMI     REVFIN
+        POP     GR3             ; スタックから文字を取出す
+        ST      GR3,0,GR1       ; 文字列の領域に文字を書き込む
+        LAD     GR1,1,GR1
+        JUMP    REVLP2
+;
+REVFIN  RPOP
+        RET
+        END

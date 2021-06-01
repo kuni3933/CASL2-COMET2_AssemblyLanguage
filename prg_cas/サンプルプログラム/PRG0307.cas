@@ -1,0 +1,27 @@
+PRG0307 START
+        RPUSH
+;
+        LAD     GR1,10
+        LAD     GR2,10
+        LAD     GR3,10
+        LAD     GR4,10
+        LAD     GR5,10
+        LAD     GR6,10
+;
+        SLL     GR1,1       ; 10Å~2
+        SLL     GR2,2       ; 10Å~4
+        SLL     GR3,3       ; 10Å~8
+;
+        SRL     GR4,1       ; 10ÅÄ2
+        SRL     GR5,2       ; 10ÅÄ4
+        SRL     GR6,3       ; 10ÅÄ8
+;
+        LAD     GR7,21
+        LAD     GR0,21
+        SLL     GR7,1       ; 21Å~2
+        SLL     GR0,3       ; 21Å~8
+        ADDA    GR0,GR7     ; 21Å~10 (ÅÅ21Å~Åi2Å{8ÅjÅÅ21Å~2Å{21Å~8)
+;
+        RPOP
+        RET
+        END

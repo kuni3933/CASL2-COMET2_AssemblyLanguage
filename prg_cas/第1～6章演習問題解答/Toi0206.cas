@@ -1,0 +1,14 @@
+TOI0206 START
+        RPUSH
+        IN      DATA,LEN        ;キーボードから文字列を入力
+        LAD     GR1,DATA
+        LD      GR2,0,GR1       ;1文字目の値を読み込む
+        LD      GR3,2,GR1       ;3文字目の値を読み込む
+        ST      GR2,2,GR1       ;1文字目の値を3文字目に格納
+        ST      GR3,0,GR1       ;3文字目の値を1文字目に格納
+        OUT     DATA,LEN        ;入替え後の文字列を出力
+        RPOP
+        RET
+LEN     DS      1
+DATA    DS      256             ;INマクロでは256語分必要
+        END

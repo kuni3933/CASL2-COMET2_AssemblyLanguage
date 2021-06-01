@@ -1,0 +1,7 @@
+copy ‘æ7Í–â‘è7-RSFTTST.cas RSFTTST.cas
+copy ‘æ7Í–â‘è7-RSHIFT.cas RSHIFT.cas
+copy ‘æ7Í–â‘è7-ALLDISP.cas ALLDISP.cas
+java CASL2 RSFTTST
+java CASL2 RSHIFT
+java CASL2 ALLDISP
+java RUN RSFTTST

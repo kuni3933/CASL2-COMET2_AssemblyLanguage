@@ -1,0 +1,47 @@
+;ファイル名をSORT.CASに変更するか，
+;SORT.CASにコピーして使用してください．
+;
+;**************************************
+;    SORT(選択ソート)
+;
+;    渡される値
+;      GR1 : データの個数
+;      GR2 : データ領域の先頭番地
+;
+;    指定領域のデータを直接ソートする
+;
+;**************************************
+SORT    START
+        RPUSH
+;
+        ADDL    GR1,GR2
+        LAD     GR1,-1,GR1              ; GR1 = データの最終番地
+        LD      GR3,GR2                 ; 
+LOOP1   LD      GR5,GR3                 ; 最大データに対するアドレスを初期化
+        LD      GR6,0,GR3               ; 最大データを初期化
+        LAD     GR4,1,GR3
+LOOP2   LD      GR7,0,GR4
+        CPL     GR7,GR6
+        JMI     L1
+        LD      GR5,GR4
+        LD      GR6,GR7
+L1      LAD     GR4,1,GR4
+        CPL     GR4,GR1
+        JMI     LOOP2
+        JZE     LOOP2
+        CALL    SWAP
+        LAD     GR3,1,GR3
+        CPL     GR3,GR1
+        JMI     LOOP1
+;
+        RPOP
+        RET
+;
+SWAP    RPUSH
+        LD      GR4,0,GR3
+        LD      GR6,0,GR5
+        ST      GR6,0,GR3
+        ST      GR4,0,GR5
+        RPOP
+        RET
+        END

@@ -1,0 +1,15 @@
+PRG0303 START
+        RPUSH
+;
+        LAD     GR1,DATA
+        LD      GR2,0,GR1
+        AND     GR2,=#00F0
+        LD      GR3,1,GR1
+        AND     GR3,=#000F
+        OR      GR2,GR3
+        XOR     GR2,=#0020
+;
+        RPOP
+        RET
+DATA    DC      'a7'
+        END

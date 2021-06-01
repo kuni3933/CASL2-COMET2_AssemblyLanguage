@@ -1,0 +1,23 @@
+TOI0403 START
+        RPUSH
+;
+        LD      GR1,=50
+        LD      GR2,=-50
+;
+        LD      GR1,GR1         ; GR1 は正か？
+        JPL     P1
+        LD      GR2,GR2         ; GR2 は正か？
+        JPL     M1P2
+        LD      GR3,=4          ; GR1 も GR2 も負かゼロ
+        JUMP    FIN
+M1P2    LD      GR3,=3          ; GR1 は負かゼロ，GR2 は正
+        JUMP    FIN
+P1      LD      GR2,GR2         ; GR2 は正か？
+        JPL     P1P2
+        LD      GR3,=2          ; GR1 は正，GR2 は負かゼロ
+        JUMP    FIN
+P1P2    LD      GR3,=1          ; GR1 も GR2 も正
+;
+FIN     RPOP
+        RET
+        END

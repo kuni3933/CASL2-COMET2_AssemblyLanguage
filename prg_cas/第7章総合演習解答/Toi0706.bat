@@ -1,0 +1,5 @@
+copy ‘æ7Í–â‘è6-DCHKTST.cas DCHKTST.cas
+copy ‘æ7Í–â‘è6-DATACHK.cas DATACHK.cas
+java CASL2 DCHKTST
+java CASL2 DATACHK
+java RUN DCHKTST

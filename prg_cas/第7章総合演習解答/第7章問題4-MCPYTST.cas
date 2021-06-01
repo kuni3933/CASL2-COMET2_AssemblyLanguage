@@ -1,0 +1,16 @@
+MCPYTST START
+        RPUSH
+        LD      GR1,SIZE
+        LAD     GR2,ORG
+        LAD     GR3,DST
+;        DMEM    MSG,ORG,MSG             ; この行を有効にすれば結果表示できる
+        CALL    MEMCPY
+;        DMEM    MSG,ORG,MSG             ; この行を有効にすれば結果表示できる
+        RPOP
+        RET
+SIZE    DC      4
+ORG     DC      'ABCD'
+        DS      1
+DST     DS      4
+;MSG     DC      ' MEMORY '              ; この行を有効にすれば結果表示できる
+        END

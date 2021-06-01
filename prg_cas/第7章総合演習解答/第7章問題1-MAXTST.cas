@@ -1,0 +1,21 @@
+;ファイル名をMAXTST.CASに変更するか，
+;MAXTST.CASにコピーして使用してください．
+;
+MAXTST  START
+        RPUSH
+        LD      GR2,=100
+        LD      GR3,=1000
+        CALL    MAX
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+        LD      GR2,=-10
+        LD      GR3,=-100
+        CALL    MAX
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+        LD      GR2,=100
+        LD      GR3,=-100
+        CALL    MAX
+;        DREG    MSG             ; この行を有効にすれば結果表示できる
+        RPOP
+        RET
+;MSG     DC      'MAX =   '      ; この行を有効にすれば結果表示できる
+        END

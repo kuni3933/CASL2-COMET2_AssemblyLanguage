@@ -1,0 +1,13 @@
+TOI0103 START
+        RPUSH
+        LAD     GR0,#FFFF   ;GR0‚É16i”FFFF‚ðŠi”[
+        LAD     GR1,#1111   ;GR1‚É16i”1111‚ðŠi”[
+        LAD     GR2,#2222   ;GR2‚É16i”2222‚ðŠi”[
+        LAD     GR3,#3333   ;GR3‚É16i”3333‚ðŠi”[
+        LAD     GR4,#4444   ;GR4‚É16i”4444‚ðŠi”[
+        LAD     GR5,#5555   ;GR5‚É16i”5555‚ðŠi”[
+        LAD     GR6,#6666   ;GR6‚É16i”6666‚ðŠi”[
+        LAD     GR7,#7777   ;GR7‚É16i”7777‚ðŠi”[
+        RPOP
+        RET
+        END

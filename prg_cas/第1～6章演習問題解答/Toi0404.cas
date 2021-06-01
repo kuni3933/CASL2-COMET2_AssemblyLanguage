@@ -1,0 +1,16 @@
+TOI0404 START
+        RPUSH
+        LAD     GR1,100
+;
+        SRL     GR1,1           ; ビット番号 0 が 1 だったら奇数
+        JOV     ODD
+        OUT     MSGE,LENE       ; 偶数の場合の表示
+        JUMP    FIN
+ODD     OUT     MSGO,LENO       ; 奇数の場合の表示
+FIN     RPOP
+        RET
+MSGE    DC      'Even'
+LENE    DC      4
+MSGO    DC      'Odd'
+LENO    DC      3
+        END

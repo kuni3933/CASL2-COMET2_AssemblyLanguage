@@ -1,0 +1,3 @@
+copy ëÊ7èÕñ‚ëË10-DECADD.cas DECADD.cas
+java CASL2 DECADD
+java RUN DECADD

@@ -1,0 +1,18 @@
+;ファイル名をSUM.CASに変更するか，
+;SUM.CASにコピーして使用してください．
+;
+SUM     START
+        PUSH    0,GR2
+        PUSH    0,GR3
+        ADDL    GR2,GR1
+        LAD     GR2,-1,GR2      ; データの一番最後の番地を求める
+        LD      GR3,=0
+LOOP    ADDL    GR3,0,GR2
+        LAD     GR2,-1,GR2
+        SUBL    GR1,=1
+        JNZ     LOOP
+        LD      GR1,GR3
+        POP     GR3
+        POP     GR2
+        RET
+        END

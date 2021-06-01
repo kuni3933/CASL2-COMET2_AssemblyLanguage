@@ -1,0 +1,98 @@
+;ファイル名をDECADD.CASに変更するか，
+;DECADD.CASにコピーして使用してください．
+;
+DECADD  START
+        RPUSH
+;
+;       キーボードから数値入力
+        IN      DATA1,LEN1      ;1番目の数値を入力
+        IN      DATA2,LEN2      ;2番目の数値を入力
+;
+;       DATA1の文字コードを数値に変換
+        LD      GR1,LEN1
+LOOP1   LAD     GR1,-1,GR1
+        LD      GR2,DATA1,GR1
+        SUBL    GR2,='0'        ;文字コードを数値に変換
+        ST      GR2,DATA1,GR1
+        CPL     GR1,=0
+        JNZ     LOOP1
+;
+;       DATA2の文字コードを数値に変換
+        LD      GR1,LEN2
+LOOP2   LAD     GR1,-1,GR1
+        LD      GR2,DATA2,GR1
+        SUBL    GR2,='0'        ;文字コードを数値に変換
+        ST      GR2,DATA2,GR1
+        CPL     GR1,=0
+        JNZ     LOOP2
+;
+;       最大桁数を求める
+        LD      GR1,LEN1
+        CPL     GR1,LEN2
+        JPL     D1LONG
+;
+        LD      GR1,LEN2        ;ループ回数セット
+        LD      GR2,LEN1        ;2つの値を加算する桁数
+        LAD     GR3,DATA2
+        ADDL    GR3,LEN2
+        LAD     GR4,DATA1
+        ADDL    GR4,LEN1
+        JUMP    MAXFIN
+D1LONG  LD      GR1,LEN1        ;ループ回数セット
+        LD      GR2,LEN2        ;2つの値を加算する桁数
+        LAD     GR3,DATA1
+        ADDL    GR3,LEN1
+        LAD     GR4,DATA2
+        ADDL    GR4,LEN2
+MAXFIN  NOP
+;
+;       加算処理
+        LD      GR6,=0          ;桁上がりを0クリア
+        LD      GR7,=0          ;演算終了の桁数
+;
+LOOP3   LAD     GR3,-1,GR3      ;つぎの桁に進める
+        LAD     GR4,-1,GR4      ;つぎの桁に進める
+        LD      GR5,0,GR3
+        ADDL    GR5,GR6         ;桁上がりを加える
+        CPL     GR2,=0
+        JZE     NOADD
+        ADDL    GR5,0,GR4
+        LAD     GR2,-1,GR2
+NOADD   LD      GR6,=0          ;桁上がりを0クリア
+        CPA     GR5,=10
+        JMI     NOCRRY
+        SUBL    GR5,=10
+        LD      GR6,=1          ;桁上がりをセット
+NOCRRY  PUSH    0,GR5           ;
+        ADDL    GR7,=1          ;演算結果終了の桁数増やす
+        SUBL    GR1,=1
+        JNZ     LOOP3
+;
+;       最後の桁上がりの処理
+        CPL     GR6,=0
+        JZE     LSTCRRY
+        ADDL    GR7,=1          ;演算結果終了の桁数増やす
+        PUSH    0,GR6
+LSTCRRY NOP
+;
+;       スタックに積んだ加算結果をDATA3領域に格納
+        ST      GR7,LEN3
+        LAD     GR6,DATA3
+LOOP4   POP     GR5
+        ADDL    GR5,='0'
+        ST      GR5,0,GR6
+        LAD     GR6,1,GR6
+        SUBL    GR7,=1
+        JNZ     LOOP4
+;
+        OUT     DATA3,LEN3
+;
+        RPOP
+        RET
+LEN1    DS      1
+LEN2    DS      1
+LEN3    DS      1
+DATA1   DS      256
+DATA2   DS      256
+DATA3   DS      256
+        END

@@ -1,0 +1,13 @@
+;ファイル名をTST0603.CASに変更するか，
+;TST0603.CASにコピーして使用してください．
+;
+TST0603 START
+        RPUSH
+        LAD     GR1,3
+        LAD     GR2,10
+        CALL    MULT            ; 10倍
+        CALL    MULT            ; 100倍
+        CALL    MULT            ; 1000倍
+        RPOP
+        RET
+        END

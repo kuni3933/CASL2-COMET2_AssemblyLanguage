@@ -1,0 +1,13 @@
+;算術シフトを行うプログラム
+;
+TOI0303A START
+        RPUSH
+;
+        LD      GR1,=#ABCD
+        SLA     GR1,4
+        SRA     GR1,8
+        SLA     GR1,4
+;
+        RPOP
+        RET
+        END

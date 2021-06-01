@@ -1,0 +1,24 @@
+TOI0405 START
+        RPUSH
+        LAD     GR1,#1234
+        LAD     GR2,#0F0F
+;
+        LD      GR3,GR1         ; GR1 を GR3 にコピー
+        IN      IBUF,LEN        ; コマンド入力
+        LD      GR4,IBUF
+LAND    CPA     GR4,='A'        ; AND 処理
+        JNZ     LOR
+        AND     GR3,GR2
+        JUMP    FIN
+LOR     CPA     GR4,='O'        ; OR 処理
+        JNZ     LXOR
+        OR      GR3,GR2
+        JUMP    FIN
+LXOR    CPA     GR4,='X'        ; XOR 処理
+        JNZ     FIN
+        XOR     GR3,GR2
+FIN     RPOP
+        RET
+IBUF    DS      256
+LEN     DS      1
+        END

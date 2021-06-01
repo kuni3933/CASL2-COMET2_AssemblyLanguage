@@ -1,0 +1,11 @@
+TOI03022 START
+        RPUSH
+;
+        LD      GR1,=#1234
+        LD      GR2,=#ABCD
+; (2)
+        OR      GR1,GR2         ; #1234 OR #ABCD = #ABEF
+;
+        RPOP
+        RET
+        END

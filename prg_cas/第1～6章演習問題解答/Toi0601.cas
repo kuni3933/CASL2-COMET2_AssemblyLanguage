@@ -1,0 +1,20 @@
+TOI0601 START
+        RPUSH
+        CALL    PRINT1           ;副プログラムPRINT1の呼出し
+        CALL    PRINT2           ;副プログラムPRINT2の呼出し
+        CALL    PRINT2           ;副プログラムPRINT2の呼出し
+        CALL    PRINT1           ;副プログラムPRINT1の呼出し
+        RPOP
+        RET
+;
+PRINT1  OUT     MSG1,LEN1       ;副プログラムの入口
+        RET                     ;副プログラムの出口
+MSG1    DC      'TEST'
+LEN1    DC      4
+;
+PRINT2  OUT     MSG2,LEN2       ;副プログラムの入口
+        RET                     ;副プログラムの出口
+MSG2    DC      'ABC'
+LEN2    DC      3
+;
+        END

@@ -1,0 +1,6 @@
+TOI0102 START
+        RPUSH
+        LAD     GR7,#ABCD   ;GR7‚É16i”‚Ì’lABCD‚ðŠi”[‚·‚é
+        RPOP
+        RET
+        END

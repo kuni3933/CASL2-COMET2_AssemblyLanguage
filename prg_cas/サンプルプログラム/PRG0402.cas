@@ -1,0 +1,10 @@
+PRG0402 START
+        RPUSH
+;
+        LAD     GR1,10
+        CPA     GR1,=10         ; GR1は10と等しいか？
+        JZE     FIN             ; もし等しいならFINへジャンプ
+        LD      GR2,GR1         ; 等しくないならGR2にコピー
+FIN     RPOP
+        RET
+        END

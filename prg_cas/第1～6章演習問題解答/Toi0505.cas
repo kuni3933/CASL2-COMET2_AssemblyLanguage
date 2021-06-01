@@ -1,0 +1,21 @@
+TOI0505 START
+        RPUSH
+        LD      GR1,DATA
+        LAD     GR2,16          ; カウンタ初期化
+        LAD     GR3,BUF         ; 格納先
+LOOP    SLL     GR1,1           ; 最上位ビットを押し出す
+        JOV     ONE
+        LD      GR4,='0'        ; 最上位ビットが 0 の場合
+        JUMP    NEXT
+ONE     LD      GR4,='1'        ; 最上位ビットが 1 の場合
+NEXT    ST      GR4,0,GR3       ; 文字を格納
+        LAD     GR3,1,GR3       ; 格納先をインクリメント
+        SUBA    GR2,=1          ; カウンタをデクリメント
+        JPL     LOOP
+        OUT     BUF,LEN
+        RPOP
+        RET
+DATA    DC      #1234
+BUF     DS      16
+LEN     DC      16
+        END

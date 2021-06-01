@@ -1,0 +1,48 @@
+;ファイル名をALLDISP.CASに変更するか，
+;ALLDISP.CASにコピーして使用してください．
+;
+;**************************************
+;  指定領域のデータを16進数で出力
+;
+;    引数
+;      GR1：語数
+;      GR2：領域の先頭番地
+;
+;**************************************
+ALLDISP START
+        RPUSH
+LOOP    LD      GR3,0,GR2
+        CALL    DISP1W
+        LAD     GR2,1,GR2
+        SUBL    GR1,=1
+        JNZ     LOOP
+        RPOP
+        RET
+;
+DISP1W  RPUSH
+        LAD     GR1,DATA
+        CALL    DISP1C          ;下位4bitを16進数で出力
+        ST      GR4,3,GR1
+        SRL     GR3,4           ;4bit分右シフト
+        CALL    DISP1C
+        ST      GR4,2,GR1
+        SRL     GR3,4
+        CALL    DISP1C
+        ST      GR4,1,GR1
+        SRL     GR3,4
+        CALL    DISP1C
+        ST      GR4,0,GR1
+        OUT     DATA,LEN
+        RPOP
+        RET
+LEN     DC      5
+DATA    DC      '     '
+;
+DISP1C  PUSH    0,GR3
+        AND     GR3,=#000F      ;下位4bitだけ取り出す
+        LD      GR4,HEX,GR3     ;16進数の文字に変換
+        POP     GR3
+        RET
+HEX     DC      '0123456789ABCDEF'
+;
+        END

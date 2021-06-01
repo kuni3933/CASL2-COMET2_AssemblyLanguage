@@ -1,0 +1,7 @@
+copy ‘æ7Í–â‘è11-SRTMAIN.cas SRTMAIN.cas
+copy ‘æ7Í–â‘è11-SORT.cas SORT.cas
+copy ‘æ7Í–â‘è11-ALLDISP.cas ALLDISP.cas
+java CASL2 SRTMAIN
+java CASL2 SORT
+java CASL2 ALLDISP
+java RUN SRTMAIN

@@ -1,0 +1,5 @@
+copy ‘æ7Í–â‘è4-MCPYTST.cas MCPYTST.cas
+copy ‘æ7Í–â‘è4-MEMCPY.cas MEMCPY.cas
+java CASL2 MCPYTST
+java CASL2 MEMCPY
+java RUN MCPYTST

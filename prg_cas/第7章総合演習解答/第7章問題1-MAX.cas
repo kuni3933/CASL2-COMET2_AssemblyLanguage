@@ -1,0 +1,10 @@
+;ファイル名をMAX.CASに変更するか，
+;MAX.CASにコピーして使用してください．
+;
+MAX     START
+        LD      GR1,GR3
+        CPA     GR2,GR3
+        JMI     FIN
+        LD      GR1,GR2
+FIN     RET
+        END

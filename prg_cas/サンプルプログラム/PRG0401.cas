@@ -1,0 +1,27 @@
+PRG0401 START
+        RPUSH
+;
+        LD      GR1,=100
+        SUBL    GR1,=200        ; OF=1CSF=1
+        LD      GR1,=0          ; ZF=0
+        LAD     GR1,300         ; FR ‚Ì’l‚ÍÝ’è‚³‚ê‚È‚¢
+        LD      GR1,=400
+;
+        LAD     GR1,10
+        CPL     GR1,=10         ; GR1‚Æ10‚ð˜_—”äŠr
+        CPL     GR1,=9          ; GR1‚Æ 9‚ð˜_—”äŠr
+        LAD     GR2,11
+        CPL     GR1,GR2         ; GR1‚ÆGR2‚ð˜_—”äŠr
+;
+        LAD     GR1,-10
+        CPA     GR1,=-10        ; GR1‚Æ|10‚ðŽZp”äŠr
+        CPA     GR1,=-9         ; GR1‚Æ|9‚ðŽZp”äŠr
+        CPA     GR1,=-11        ; GR1‚Æ|11‚ðŽZp”äŠr
+;
+        LAD     GR1,10
+        CPL     GR1,=#FF00      ; GR1‚Æ#FF00‚ð˜_—”äŠr
+        CPA     GR1,=#FF00      ; GR1‚Æ#FF00‚ðŽZp”äŠr
+;
+        RPOP
+        RET
+        END

@@ -1,0 +1,37 @@
+;ファイル名をDATACHK.CASに変更するか，
+;DATACHK.CASにコピーして使用してください．
+;
+DATACHK START
+        PUSH    0,GR2
+        PUSH    0,GR3
+        PUSH    0,GR4
+        LD      GR3,=0
+        ADDL    GR2,GR1
+LOOP    CPL     GR2,GR1
+        JMI     FIN
+        LAD     GR2,-1,GR2
+;
+;       国語の点数のチェック
+        LD      GR4,0,GR2
+        AND     GR4,=#00FF
+        CPL     GR4,=60
+        JPL     CNTUP
+        JZE     CNTUP
+;
+;       数学の点数のチェック
+        LD      GR4,0,GR2
+        SRL     GR4,8
+        AND     GR4,=#00FF
+        CPL     GR4,=60
+        JPL     CNTUP
+        JZE     CNTUP
+;
+        JUMP    LOOP
+CNTUP   LAD     GR3,1,GR3
+        JUMP    LOOP
+FIN     LD      GR1,GR3
+        POP     GR4
+        POP     GR3
+        POP     GR2
+        RET
+        END

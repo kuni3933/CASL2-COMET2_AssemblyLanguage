@@ -1,0 +1,15 @@
+;ファイル名をSUMTST.CASに変更するか，
+;SUMTST.CASにコピーして使用してください．
+;
+SUMTST  START
+        RPUSH
+        LD      GR1,LEN
+        LAD     GR2,DATA
+        CALL    SUM
+;        DREG    MSG                     ; この行を有効にすれば結果表示できる
+        RPOP
+        RET
+LEN     DC      5
+DATA    DC      100,200,300,400,500
+;MSG     DC      'SUM =   '              ; この行を有効にすれば結果表示できる
+        END

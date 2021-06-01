@@ -1,0 +1,19 @@
+;ファイル名をRSFTTST.CASに変更するか，
+;RSFTTST.CASにコピーして使用してください．
+;
+RSFTTST START
+        RPUSH
+        LAD     GR1,DATA
+        LD      GR2,LEN
+        LD      GR3,SFT
+        CALL    RSHIFT
+;
+        LD      GR1,LEN
+        LAD     GR2,DATA
+        CALL    ALLDISP
+        RPOP
+        RET
+LEN     DC      4
+DATA    DC      #1234,#5678,#9ABC,#DEF0
+SFT     DC      12
+        END

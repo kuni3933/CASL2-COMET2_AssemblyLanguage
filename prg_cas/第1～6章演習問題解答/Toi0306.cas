@@ -1,0 +1,18 @@
+TOI0306 START
+        RPUSH
+;
+        LAD     GR1,100
+        LAD     GR2,200
+        LAD     GR3,400
+        LAD     GR4,-100
+;
+        LAD     GR5,0
+        ADDA    GR5,GR1
+        ADDA    GR5,GR2
+        ADDA    GR5,GR3
+        ADDA    GR5,GR4
+        SRA     GR5,2
+;
+        RPOP
+        RET
+        END

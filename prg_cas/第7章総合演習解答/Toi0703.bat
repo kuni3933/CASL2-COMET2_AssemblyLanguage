@@ -1,0 +1,5 @@
+copy ‘æ7Í–â‘è3-PRTYTST.cas PRTYTST.cas
+copy ‘æ7Í–â‘è3-PARITY.cas PARITY.cas
+java CASL2 PRTYTST
+java CASL2 PARITY
+java RUN PRTYTST

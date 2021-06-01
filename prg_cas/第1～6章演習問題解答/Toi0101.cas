@@ -1,0 +1,6 @@
+TOI0101 START   ;ƒvƒƒOƒ‰ƒ€–¼‚ðTOI0101‚É•ÏX
+        RPUSH
+        NOP
+        RPOP
+        RET
+        END

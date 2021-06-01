@@ -1,0 +1,11 @@
+TOI03023 START
+        RPUSH
+;
+        LD      GR1,=#1234
+        LD      GR2,=#ABCD
+; (3)
+        XOR     GR1,GR2         ; #1234 XOR #ABCD = #B9F9
+;
+        RPOP
+        RET
+        END

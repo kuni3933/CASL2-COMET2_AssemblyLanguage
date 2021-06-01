@@ -1,0 +1,13 @@
+TOI0305 START
+        RPUSH
+;
+        LD      GR1,=#1234
+;
+        LD      GR2,GR1         ; 値をコピー
+        SLL     GR2,8           ; 下位 8 ビット
+        SRL     GR1,8           ; 上位 8 ビット
+        OR      GR1,GR2         ; 一つにする
+;
+        RPOP
+        RET
+        END

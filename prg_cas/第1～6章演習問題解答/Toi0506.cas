@@ -1,0 +1,28 @@
+TOI0506 START
+        RPUSH
+        LAD     GR1,DATA
+        LD      GR2,0,GR1       ; 最初の文字をロード
+LOOP1   LD      GR3,=0          ; 出力文字列の長さを初期化
+        LAD     GR4,BUF         ; 出力文字格納領域
+LOOP2   CPA     GR2,='.'        ; ピリオドなら文の終了
+        JZE     FIN
+        ST      GR2,0,GR4       ; 出力文字を格納
+        LAD     GR4,1,GR4       ; 格納先を 1 文字進める
+        LAD     GR3,1,GR3       ; 出力文字列の長さをインクリメント
+        LAD     GR1,1,GR1       ; 元の文字列を 1 文字進める
+        LD      GR2,0,GR1       ; 次の文字をロード
+        CPA     GR2,=' '        ; 間隔文字なら単語の終了
+        JNZ     LOOP2
+        ST      GR3,LEN
+        OUT     BUF,LEN         ; 単語の出力
+        LAD     GR1,1,GR1       ; 元の文字列を 1 文字進める
+        LD      GR2,0,GR1       ; 次の文字をロード
+        JUMP    LOOP1
+FIN     ST      GR3,LEN
+        OUT     BUF,LEN         ; 最後の単語の出力
+        RPOP
+        RET
+DATA    DC      'This is a pen.'
+BUF     DS      256
+LEN     DS      1
+        END

@@ -1,0 +1,27 @@
+PRG0305 START
+        RPUSH
+;
+        LD      GR1,DATA
+        SLL     GR1,2       ; 2ビット左シフト
+        SRL     GR1,2       ; 2ビット右シフト
+;
+        LD      GR2,DATA
+        LD      GR3,=0
+        SRL     GR2,0,GR3   ; 0ビットシフト
+;
+        LD      GR2,DATA
+        ADDL    GR3,=4
+        SRL     GR2,0,GR3   ; 4ビットシフト
+;
+        LD      GR2,DATA
+        ADDL    GR3,=4
+        SRL     GR2,0,GR3   ; 8ビットシフト
+;
+        LD      GR2,DATA
+        ADDL    GR3,=4
+        SRL     GR2,0,GR3   ; 12ビットシフト
+;
+        RPOP
+        RET
+DATA    DC      #CDEF
+        END

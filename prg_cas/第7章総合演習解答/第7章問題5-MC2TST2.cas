@@ -1,0 +1,30 @@
+;ファイル名をMC2TST.CASに変更するか，
+;MC2TST.CASにコピーして使用してください．
+;
+;3語前方へコピーする場合のプログラム
+;
+MC2TST2 START
+        RPUSH
+        LD      GR1,SIZE                ; コピーするサイズを設定
+        LAD     GR2,DATA05              ; コピー元を設定
+        LAD     GR3,DATA02              ; コピー先を設定
+;        DMEM     MSG,DATA01,MSG         ; この行を有効にすれば結果表示できる
+        CALL    MEMCPY2
+;        DMEM     MSG,DATA01,MSG         ; この行を有効にすれば結果表示できる
+        RPOP
+        RET
+SIZE    DC      4
+DATA01  DC      0
+DATA02  DC      0
+DATA03  DC      0
+DATA04  DC      0
+DATA05  DC      'A'
+DATA06  DC      'B'
+DATA07  DC      'C'
+DATA08  DC      'D'
+DATA09  DC      0
+DATA10  DC      0
+DATA11  DC      0
+DATA12  DC      0
+;MSG     DC      ' MEMORY '              ; この行を有効にすれば結果表示できる
+        END

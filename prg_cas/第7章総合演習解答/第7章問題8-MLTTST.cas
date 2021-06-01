@@ -1,0 +1,15 @@
+;ファイル名をMLTTST.CASに変更するか，
+;MLTTST.CASにコピーして使用してください．
+;
+MLTTST  START
+        RPUSH
+;
+        LD      GR1,=11
+        LD      GR2,=5
+        CALL    MULT
+;        DREG    MSG              ; この行を有効にすれば結果表示できる
+;
+        RPOP
+        RET
+;MSG     DC      'Result  '       ; この行を有効にすれば結果表示できる
+        END

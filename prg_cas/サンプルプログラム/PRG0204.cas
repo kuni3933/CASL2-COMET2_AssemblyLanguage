@@ -1,0 +1,17 @@
+PRG0204 START
+        RPUSH
+        LAD     GR1,ORG         ;ORGのアドレスをGR1へ格納
+        LAD     GR2,DST         ;DSTのアドレスをGR2へ格納
+        LD      GR3,3,GR1       ;ORG+3番地の値を読み込む
+        LD      GR4,2,GR1
+        LD      GR5,1,GR1
+        LD      GR6,0,GR1
+        ST      GR3,0,GR2       ;DST+0番地へGR3の値を書き込む
+        ST      GR4,1,GR2
+        ST      GR5,2,GR2
+        ST      GR6,3,GR2
+        RPOP
+        RET
+ORG     DC      '0123'
+DST     DS      4
+        END

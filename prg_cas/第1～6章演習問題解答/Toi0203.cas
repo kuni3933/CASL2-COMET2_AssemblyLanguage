@@ -1,0 +1,15 @@
+TOI0203 START
+        RPUSH
+        LD      GR1,ORG1
+        ST      GR1,DST1        ;ORG1の値をDST1にコピー
+        ST      GR1,DST2        ;ORG1の値をDST2にコピー
+        ST      GR1,DST3        ;ORG1の値をDST3にコピー
+        ST      GR1,DST4        ;ORG1の値をDST4にコピー
+        RPOP
+        RET
+ORG1    DC      'Z'
+DST1    DS      1
+DST2    DS      1
+DST3    DS      1
+DST4    DS      1
+        END

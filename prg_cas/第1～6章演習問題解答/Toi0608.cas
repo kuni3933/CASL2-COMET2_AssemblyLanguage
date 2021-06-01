@@ -1,0 +1,32 @@
+TOI0608 START
+        RPUSH
+        LAD     GR1,DATA
+        LAD     GR2,10
+        CALL    MAX
+        RPOP
+        RET
+DATA    DC      1,20000,30,4000,50000
+        DC      600,7,8000,900,9999
+;
+MAX     PUSH    0,GR3
+        PUSH    0,GR4
+        PUSH    0,GR5
+        LD      GR4,GR1         ; データの先頭アドレスを設定
+        LD      GR5,GR1
+        ADDL    GR5,GR2         ; 最後のデータのつぎのアドレスを設定
+        LAD     GR1,0           ; 最大値を初期化
+        LAD     GR2,0           ; 最大値の位置を初期化
+        LAD     GR3,1           ; 着目する位置を初期化
+MAXLOOP CPL     GR1,0,GR4       ; ここまでの最大値と，着目している値を比較
+        JPL     NOMAX
+        LD      GR1,0,GR4       ; 最大値を更新
+        LD      GR2,GR3         ; 最大値の位置を更新
+NOMAX   LAD     GR3,1,GR3       ; 着目する位置をインクリメント
+        LAD     GR4,1,GR4       ; アドレスをインクリメント
+        CPL     GR4,GR5
+        JNZ     MAXLOOP
+        POP     GR5
+        POP     GR4
+        POP     GR3
+        RET
+        END

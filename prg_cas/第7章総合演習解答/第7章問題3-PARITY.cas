@@ -1,0 +1,28 @@
+;ファイル名をPARITY.CASに変更するか，
+;PARITY.CASにコピーして使用してください．
+;
+PARITY  START
+        PUSH    0,GR2
+        PUSH    0,GR3
+        PUSH    0,GR4
+;
+        LD      GR2,GR1         ;
+        LD      GR3,=16         ;
+        LD      GR4,=0          ;
+LOOP    CPA     GR2,=0
+        JPL     NOCNT
+        JZE     NOCNT
+        ADDL    GR4,=1
+NOCNT   SLL     GR2,1
+        SUBL    GR3,=1
+        JNZ     LOOP
+;
+        AND     GR4,=#0001
+        XOR     GR4,=#0001
+        XOR     GR1,GR4
+;
+        POP     GR4
+        POP     GR3
+        POP     GR2
+        RET
+        END

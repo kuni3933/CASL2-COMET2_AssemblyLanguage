@@ -1,0 +1,18 @@
+TOI0307 START
+        RPUSH
+;
+        LAD     GR1,DATA
+        LD      GR2,0,GR1       ; GR2 に十の位をロード
+        AND     GR2,=#000F      ; 文字を数値に変換
+        LD      GR3,GR2
+        SLL     GR2,3           ; 8 倍
+        SLL     GR3,1           ; 2 倍
+        ADDA    GR2,GR3         ; (8+2) 倍
+        LD      GR0,1,GR1       ; GR0 に一の位をロード
+        AND     GR0,=#000F      ; 文字を数値に変換
+        ADDA    GR0,GR2         ; 十の位と一の位を合わせる
+;
+        RPOP
+        RET
+DATA    DC      '2','8'
+        END
