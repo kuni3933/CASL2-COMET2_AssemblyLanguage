@@ -1,7 +1,7 @@
-;�v���O����0102
-PRG0102   START               ;�v���O�������J�n
-          RPUSH               ;���܂蕶��
-          LAD     GR7, #1234      ;GR7��16�i���̒l1234���i�[����
-          RPOP                ;RPUSH�Ƒ΂Ō��܂蕶��
-          RET                 ;�v���O�����̎��s�I��
-          END                 ;�v���O�����̂P�ԍŌ�̌��܂蕶��
+;プログラム0102
+PRG0102   START               ;プログラムを開始
+          RPUSH               ;決まり文句
+          LAD     GR7, #1234      ;GR7に16進数の値1234を格納する
+          RPOP                ;RPUSHと対で決まり文句
+          RET                 ;プログラムの実行終了
+          END                 ;プログラムの１番最後の決まり文句
