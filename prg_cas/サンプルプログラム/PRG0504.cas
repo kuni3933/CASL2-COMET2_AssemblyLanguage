@@ -1,18 +1,18 @@
-PRG0504 START
-        RPUSH
+PRG0504   START
+          RPUSH
 ;
-        LAD     GR1,1           ; GR1‰Šú‰»
-LOOP1   LD      GR2,GR1         ; LOOP1ŠJŽnCGR2‰Šú‰»
-        LD      GR3,GR1         ; ‘«‚·”‚Ì‰Šú‰»
-        LD      GR4,=0          ; ‰‰ŽZŒ‹‰Ê‚ð•Û‘¶‚·‚éƒŒƒWƒXƒ^‰Šú‰»
-LOOP2   ADDA    GR4,GR3         ; ˜a‚ð‹‚ß‚é
-        SUBA    GR2,=1          ; GR2ƒfƒNƒŠƒƒ“ƒg
-        JNZ     LOOP2           ; GR2‚ª0‚É‚È‚ê‚ÎLOOP2I—¹
-        ADDA    GR1,=1          ; GR1ƒCƒ“ƒNƒŠƒƒ“ƒg
-        CPA     GR1,=10         ; GR1‚ª10‚É‚È‚ê‚ÎLOOP1I—¹
-        JMI     LOOP1
+          LAD     GR1, 1           ; GR1åˆæœŸåŒ–
+LOOP1     LD      GR2, GR1         ; LOOP1é–‹å§‹ï¼ŒGR2åˆæœŸåŒ–
+          LD      GR3, GR1         ; è¶³ã™æ•°ã®åˆæœŸåŒ–
+          LD      GR4, =0          ; æ¼”ç®—çµæžœã‚’ä¿å­˜ã™ã‚‹ãƒ¬ã‚¸ã‚¹ã‚¿åˆæœŸåŒ–
+LOOP2     ADDA    GR4, GR3         ; å’Œã‚’æ±‚ã‚ã‚‹
+          SUBA    GR2, =1          ; GR2ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+          JNZ     LOOP2           ; GR2ãŒ0ã«ãªã‚Œã°LOOP2çµ‚äº†
+          ADDA    GR1, =1          ; GR1ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+          CPA     GR1, =10         ; GR1ãŒ10ã«ãªã‚Œã°LOOP1çµ‚äº†
+          JMI     LOOP1
 ;
-        RPOP
+          RPOP
 ;       RET
 ;
-        END
+          END

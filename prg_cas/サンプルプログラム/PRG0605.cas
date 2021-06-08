@@ -1,25 +1,25 @@
-PRG0605 START
-        RPUSH
-        LAD     GR2,0
-        PUSH    0,GR2
-        LAD     GR1,ORG
-ORGLOOP LD      GR2,0,GR1       ;•¶Žš‚ð1•¶Žš‚¸‚Â“Ç‚Ýž‚Þ
-        CPA     GR2,=0
-        JZE     DSTSTRT         ;•¶Žš—ñ‚Ìƒf[ƒ^‚ª0‚È‚çI—¹
-        PUSH    0,GR2           ;•¶Žš‚ðƒXƒ^ƒbƒN‚ÉÏ‚Þ
-        LAD     GR1,1,GR1       ;•¶Žš—ñ‚ÌƒAƒhƒŒƒX‚ð1‘‚â‚·
-        JUMP    ORGLOOP
+PRG0605   START
+          RPUSH
+          LAD     GR2, 0
+          PUSH    0, GR2
+          LAD     GR1, ORG
+ORGLOOP   LD      GR2, 0, GR1       ;æ–‡å­—ã‚’1æ–‡å­—ãšã¤èª­ã¿è¾¼ã‚€
+          CPA     GR2, =0
+          JZE     DSTSTRT         ;æ–‡å­—åˆ—ã®ãƒ‡ãƒ¼ã‚¿ãŒ0ãªã‚‰çµ‚äº†
+          PUSH    0, GR2           ;æ–‡å­—ã‚’ã‚¹ã‚¿ãƒƒã‚¯ã«ç©ã‚€
+          LAD     GR1, 1, GR1       ;æ–‡å­—åˆ—ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’1å¢—ã‚„ã™
+          JUMP    ORGLOOP
 ;
-DSTSTRT LAD     GR1,DST
-DSTLOOP POP     GR2             ;ƒXƒ^ƒbƒN‚©‚ç•¶Žš‚ðŽæ‚èo‚·
-        CPA     GR2,=0
-        JZE     DSTFIN
-        ST      GR2,0,GR1
-        LAD     GR1,1,GR1       ;Ši”[‚·‚éƒAƒhƒŒƒX‚ð1‘‚â‚·
-        JUMP    DSTLOOP
-DSTFIN  RPOP
-        RET
+DSTSTRT   LAD     GR1, DST
+DSTLOOP   POP     GR2             ;ã‚¹ã‚¿ãƒƒã‚¯ã‹ã‚‰æ–‡å­—ã‚’å–ã‚Šå‡ºã™
+          CPA     GR2, =0
+          JZE     DSTFIN
+          ST      GR2, 0, GR1
+          LAD     GR1, 1, GR1       ;æ ¼ç´ã™ã‚‹ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’1å¢—ã‚„ã™
+          JUMP    DSTLOOP
+DSTFIN    RPOP
+          RET
 ORG     DC      'ABCD'
-ORGEND  DC      0
-DST     DS      100
-        END
+ORGEND    DC      0
+DST       DS      100
+          END

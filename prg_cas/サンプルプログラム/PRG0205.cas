@@ -1,17 +1,17 @@
-PRG0205 START
-        RPUSH
-        IN      DATA,LEN        ;�L�[�{�[�h���當��������
-        OUT     DATA,LEN        ;��ʂɏo��
-        OUT     DATA,LEN2       ;�擪��3���������o��
-        LAD     GR1,DATA
-        LD      GR2,0,GR1
-        LD      GR3,1,GR1
-        ST      GR2,1,GR1       ;�擪�̕�����2�����ڂɊi�[
-        ST      GR3,0,GR1       ;2�����ڂ�擪�Ɋi�[
-        OUT     DATA,LEN
-        RPOP
-        RET
-LEN     DS      1
-DATA    DS      256             ;IN�}�N���ł�256�ꕪ�K�v
-LEN2    DC      3
-        END
+PRG0205   START
+          RPUSH
+          IN      DATA, LEN        ;キーボードから文字列を入力
+          OUT     DATA, LEN        ;画面に出力
+          OUT     DATA, LEN2       ;先頭の3文字だけ出力
+          LAD     GR1, DATA
+          LD      GR2, 0, GR1
+          LD      GR3, 1, GR1
+          ST      GR2, 1, GR1       ;先頭の文字を2文字目に格納
+          ST      GR3, 0, GR1       ;2文字目を先頭に格納
+          OUT     DATA, LEN
+          RPOP
+          RET
+LEN       DS      1
+DATA      DS      256             ;INマクロでは256語分必要
+LEN2      DC      3
+          END

@@ -1,17 +1,17 @@
-;ƒtƒ@ƒCƒ‹–¼‚ðMULT.CAS‚É•ÏX‚·‚é‚©C
-;MULT.CAS‚ÉƒRƒs[‚µ‚ÄŽg—p‚µ‚Ä‚­‚¾‚³‚¢D
+;ãƒ•ã‚¡ã‚¤ãƒ«åã‚’MULT.CASã«å¤‰æ›´ã™ã‚‹ã‹ï¼Œ
+;MULT.CASã«ã‚³ãƒ”ãƒ¼ã—ã¦ä½¿ç”¨ã—ã¦ãã ã•ã„ï¼Ž
 ;
-MULT    START
-        PUSH    0,GR2
-        PUSH    0,GR3
-        LAD     GR3,0,GR1
-        LAD     GR1,0           ;Š|ŽZŒ‹‰Ê—p‚ÌƒŒƒWƒXƒ^‚ðƒNƒŠƒA
-LOOP    CPA     GR2,=0
-        JZE     FIN
-        ADDA    GR1,GR3         ;Š|‚¯‚ç‚ê‚é”‚ð‰Á‚¦‚é
-        LAD     GR2,-1,GR2      ;Š|‚¯‚é”‚ð1Œ¸‚ç‚·
-        JUMP    LOOP
-FIN     POP     GR3
-        POP     GR2
-        RET
-        END
+MULT      START
+          PUSH    0, GR2
+          PUSH    0, GR3
+          LAD     GR3, 0, GR1
+          LAD     GR1, 0           ;æŽ›ç®—çµæžœç”¨ã®ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’ã‚¯ãƒªã‚¢
+LOOP      CPA     GR2, =0
+          JZE     FIN
+          ADDA    GR1, GR3         ;æŽ›ã‘ã‚‰ã‚Œã‚‹æ•°ã‚’åŠ ãˆã‚‹
+          LAD     GR2, -1, GR2      ;æŽ›ã‘ã‚‹æ•°ã‚’1æ¸›ã‚‰ã™
+          JUMP    LOOP
+FIN       POP     GR3
+          POP     GR2
+          RET
+          END

@@ -1,32 +1,32 @@
-PRG0403 START
-        RPUSH
+PRG0403   START
+          RPUSH
 ;
-        IN      DATA,LEN        ; ï∂éöÇì«Ç›çûÇﬁ
-        LD      GR1,DATA
-        CPL     GR1,='A'        ; ï∂éöÇÕ'A'Ç©ÅH
-        JNZ     CHKB
-        OUT     MSGA,LENA
-        JUMP    FIN
-CHKB    CPL     GR1,='B'        ; ï∂éöÇÕ'B'Ç©ÅH
-        JNZ     CHKC
-        OUT     MSGB,LENB
-        JUMP    FIN
-CHKC    CPL     GR1,='C'        ; ï∂éöÇÕ'C'Ç©ÅH
-        JNZ     OTHER
-        OUT     MSGC,LENC
-        JUMP    FIN
-OTHER   OUT     MSGO,LENO       ; ÇªÇÃëºÇÃï∂éö
-FIN     RPOP
-        RET
+          IN      DATA, LEN        ; ÊñáÂ≠ó„ÇíË™≠„ÅøËæº„ÇÄ
+          LD      GR1, DATA
+        CPL     GR1,='A'        ; ÊñáÂ≠ó„ÅØ'A'„ÅãÔºü
+          JNZ     CHKB
+          OUT     MSGA, LENA
+          JUMP    FIN
+CHKB    CPL     GR1,='B'        ; ÊñáÂ≠ó„ÅØ'B'„ÅãÔºü
+          JNZ     CHKC
+          OUT     MSGB, LENB
+          JUMP    FIN
+CHKC    CPL     GR1,='C'        ; ÊñáÂ≠ó„ÅØ'C'„ÅãÔºü
+          JNZ     OTHER
+          OUT     MSGC, LENC
+          JUMP    FIN
+OTHER     OUT     MSGO, LENO       ; „Åù„ÅÆ‰ªñ„ÅÆÊñáÂ≠ó
+FIN       RPOP
+          RET
 ;
-LEN     DC      1
-DATA    DS      256
-LENA    DC      5
+LEN       DC      1
+DATA      DS      256
+LENA      DC      5
 MSGA    DC      'Apple'
-LENB    DC      4
+LENB      DC      4
 MSGB    DC      'Blue'
-LENC    DC      5
+LENC      DC      5
 MSGC    DC      'Clear'
-LENO    DC      5
+LENO      DC      5
 MSGO    DC      'Other'
-        END
+          END

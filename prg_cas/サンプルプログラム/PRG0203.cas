@@ -1,22 +1,22 @@
-PRG0203 START
-        RPUSH
-        LD      GR1,ORG1
-        ST      GR1,DST1        ;ORG1�̒l��DST1�ɃR�s�[
-        LD      GR1,ORG2
-        ST      GR1,DST2        ;ORG2�̒l��DST2�ɃR�s�[
-        LD      GR1,ORG3
-        LD      GR2,ORG4
-        ST      GR1,DST3        ;ORG3�̒l��DST3�ɃR�s�[
-        ST      GR2,DST4        ;ORG4�̒l��DST4�ɃR�s�[
-        LD      GR3,GR2
-        RPOP
-        RET
+PRG0203   START
+          RPUSH
+          LD      GR1, ORG1
+          ST      GR1, DST1        ;ORG1の値をDST1にコピー
+          LD      GR1, ORG2
+          ST      GR1, DST2        ;ORG2の値をDST2にコピー
+          LD      GR1, ORG3
+          LD      GR2, ORG4
+          ST      GR1, DST3        ;ORG3の値をDST3にコピー
+          ST      GR2, DST4        ;ORG4の値をDST4にコピー
+          LD      GR3, GR2
+          RPOP
+          RET
 ORG1    DC      '1'
 ORG2    DC      '2'
 ORG3    DC      '3'
 ORG4    DC      '4'
-DST1    DS      1
-DST2    DS      1
-DST3    DS      1
-DST4    DS      1
-        END
+DST1      DS      1
+DST2      DS      1
+DST3      DS      1
+DST4      DS      1
+          END

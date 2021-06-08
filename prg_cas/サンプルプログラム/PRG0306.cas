@@ -1,25 +1,25 @@
-PRG0306 START
-        RPUSH
+PRG0306   START
+          RPUSH
 ;
-        LAD     GR0,#CDEF
-        LAD     GR1,#0F0F
-        LAD     GR2,#CDEF
-        LAD     GR3,#0F0F
-        LAD     GR4,#CDEF
-        LAD     GR5,#0F0F
-        LAD     GR6,#CDEF
-        LAD     GR7,#0F0F
+          LAD     GR0, #CDEF
+          LAD     GR1, #0F0F
+          LAD     GR2, #CDEF
+          LAD     GR3, #0F0F
+          LAD     GR4, #CDEF
+          LAD     GR5, #0F0F
+          LAD     GR6, #CDEF
+          LAD     GR7, #0F0F
 ;
-        SLL     GR0,2       ; ˜_—¶ƒVƒtƒgi•„†ƒrƒbƒg‚ª1‚Ì’lj
-        SLL     GR1,2       ; ˜_—¶ƒVƒtƒgi•„†ƒrƒbƒg‚ª0‚Ì’lj
-        SRL     GR2,2       ; ˜_—‰EƒVƒtƒgi•„†ƒrƒbƒg‚ª1‚Ì’lj
-        SRL     GR3,2       ; ˜_—‰EƒVƒtƒgi•„†ƒrƒbƒg‚ª0‚Ì’lj
+          SLL     GR0, 2       ; è«–ç†å·¦ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ1ã®å€¤ï¼‰
+          SLL     GR1, 2       ; è«–ç†å·¦ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ0ã®å€¤ï¼‰
+          SRL     GR2, 2       ; è«–ç†å³ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ1ã®å€¤ï¼‰
+          SRL     GR3, 2       ; è«–ç†å³ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ0ã®å€¤ï¼‰
 ;
-        SLA     GR4,2       ; ŽZp¶ƒVƒtƒgi•„†ƒrƒbƒg‚ª1‚Ì’lj
-        SLA     GR5,2       ; ŽZp¶ƒVƒtƒgi•„†ƒrƒbƒg‚ª0‚Ì’lj
-        SRA     GR6,2       ; ŽZp‰EƒVƒtƒgi•„†ƒrƒbƒg‚ª1‚Ì’lj
-        SRA     GR7,2       ; ŽZp‰EƒVƒtƒgi•„†ƒrƒbƒg‚ª0‚Ì’lj
+          SLA     GR4, 2       ; ç®—è¡“å·¦ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ1ã®å€¤ï¼‰
+          SLA     GR5, 2       ; ç®—è¡“å·¦ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ0ã®å€¤ï¼‰
+          SRA     GR6, 2       ; ç®—è¡“å³ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ1ã®å€¤ï¼‰
+          SRA     GR7, 2       ; ç®—è¡“å³ã‚·ãƒ•ãƒˆï¼ˆç¬¦å·ãƒ“ãƒƒãƒˆãŒ0ã®å€¤ï¼‰
 ;
-        RPOP
-        RET
-        END
+          RPOP
+          RET
+          END
