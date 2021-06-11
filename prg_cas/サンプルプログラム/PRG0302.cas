@@ -1,23 +1,23 @@
-PRG0302   START
-          RPUSH
-;                               ; è² ã®å€¤ã®æ‰±ã„æ–¹
-          LAD     GR1, 10
-          LAD     GR2, 10
-          LAD     GR3, -10
-          LAD     GR4, 65526
-          ADDA    GR1, GR3         ; ç®—è¡“åŠ ç®— 10ï¼‹(ï¼10)ï¼0
-          ADDL    GR2, GR4         ; è«–ç†åŠ ç®— 10ï¼‹65526ï¼65536ï¼ˆã‚ªãƒ¼ãƒãƒ•ãƒ­ãƒ¼ç™ºç”Ÿï¼‰
+PRG0302 START
+        RPUSH
+;                               ; •‰‚Ì’l‚Ìˆµ‚¢•û
+        LAD     GR1,10
+        LAD     GR2,10
+        LAD     GR3,-10
+        LAD     GR4,65526
+        ADDA    GR1,GR3         ; ŽZp‰ÁŽZ 10{(|10)0
+        ADDL    GR2,GR4         ; ˜_—‰ÁŽZ 10{6552665536iƒI[ƒoƒtƒ[”­¶j
 ;
-          LAD     GR1, 1
-          LAD     GR2, 1
-          ADDA    GR1, =32767      ; ç®—è¡“åŠ ç®— 1ï¼‹32767ï¼32768ï¼ˆã‚ªãƒ¼ãƒãƒ•ãƒ­ãƒ¼ç™ºç”Ÿï¼‰
-          ADDL    GR2, =32767      ; è«–ç†åŠ ç®— 1ï¼‹32767ï¼32768
+        LAD     GR1,1
+        LAD     GR2,1
+        ADDA    GR1,=32767      ; ŽZp‰ÁŽZ 1{3276732768iƒI[ƒoƒtƒ[”­¶j
+        ADDL    GR2,=32767      ; ˜_—‰ÁŽZ 1{3276732768
 ;
-          LD      GR1, =100
-          LD      GR2, =100
-          SUBA    GR1, =103        ; ç®—è¡“æ¸›ç®— 100ï¼103ï¼ï¼3
-          SUBL    GR2, =103        ; è«–ç†æ¸›ç®— 100ï¼103ï¼65533ï¼ˆã‚ªãƒ¼ãƒãƒ•ãƒ­ãƒ¼ç™ºç”Ÿï¼‰
+        LD      GR1,=100
+        LD      GR2,=100
+        SUBA    GR1,=103        ; ŽZpŒ¸ŽZ 100|103|3
+        SUBL    GR2,=103        ; ˜_—Œ¸ŽZ 100|10365533iƒI[ƒoƒtƒ[”­¶j
 ;
-          RPOP
-          RET
-          END
+        RPOP
+        RET
+        END

@@ -1,0 +1,22 @@
+﻿<html>
+<head>
+<title>WCASL II Applet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=MS932"></head>
+<body>
+<center>
+<table>
+<tr>
+<td><div align="right"><a href="doc/index.html" target="_blunk">help</a></div></td></tr>
+<tr><td>
+<applet code=jp.teikyo.ics.hiro.wcasl2.applet.WcaslApplet.class  archive="wcasl2.jar" width=400 height=480>
+<!--
+<param name="SimulationMode" value="comet">
+<param name="ProgramFile" value="test.cas" >
+-->
+</applet>
+</td>
+</tr>
+</table>
+</center>
+</body>
+</html>

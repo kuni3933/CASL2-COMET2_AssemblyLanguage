@@ -1,26 +1,26 @@
-PRG0602   START
-          RPUSH
-          LAD     GR1, #369C
-          CALL    DISP1           ;ä¸‹ä½4ãƒ“ãƒƒãƒˆã‚’16é€²æ•°ã§å‡ºåŠ›
-          SRL     GR1, 4           ;4ãƒ“ãƒƒãƒˆåˆ†å³ã‚·ãƒ•ãƒˆ
-          CALL    DISP1
-          SRL     GR1, 4
-          CALL    DISP1
-          SRL     GR1, 4
-          CALL    DISP
-          RPOP
-          RET
+PRG0602 START
+        RPUSH
+        LAD     GR1,#369C
+        CALL    DISP1           ;‰ºˆÊ4ƒrƒbƒg‚ð16i”‚Åo—Í
+        SRL     GR1,4           ;4ƒrƒbƒg•ª‰EƒVƒtƒg
+        CALL    DISP1
+        SRL     GR1,4
+        CALL    DISP1
+        SRL     GR1,4
+        CALL    DISP
+        RPOP
+        RET
 ;
-DISP1     PUSH    0, GR1
-          PUSH    0, GR2
-          AND     GR1, =#000F      ;ä¸‹ä½4ãƒ“ãƒƒãƒˆã ã‘å–ã‚Šå‡ºã™
-          LD      GR2, HEX, GR1     ;16é€²æ•°ã®æ–‡å­—ã«å¤‰æ›
-          ST      GR2, DATA
-FIN       OUT     DATA, LEN
-          POP     GR2
-          POP     GR1
-          RET
-LEN       DC      1
-DATA      DS      1
+DISP1   PUSH    0,GR1
+        PUSH    0,GR2
+        AND     GR1,=#000F      ;‰ºˆÊ4ƒrƒbƒg‚¾‚¯Žæ‚èo‚·
+        LD      GR2,HEX,GR1     ;16i”‚Ì•¶Žš‚É•ÏŠ·
+        ST      GR2,DATA
+FIN     OUT     DATA,LEN
+        POP     GR2
+        POP     GR1
+        RET
+LEN     DC      1
+DATA    DS      1
 HEX     DC      '0123456789ABCDEF'
-          END
+        END

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>WCASL Ⅱ　アプリケーションの使い方</title>
+<link href="wstyle.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<style type="text/css">
+<!--
+.style1 {color: #000000}
+.commandPronpt {
+	color: #FFFFFF;
+	background-color: #000000;
+	border: thin solid;
+	padding: 12px;
+	height: auto;
+	width: auto;
+	margin: auto;
+}
+-->
+</style>
+</head>
+<body>
+<h1>WCASLⅡアプリケーションの使い方
+</h1>
+<p></p>
+<h2>実行</h2>
+<p>コマンドプロンプトで以下のように入力して実行します．</p>
+<pre class="commandPronpt" >
+
+java -jar wcasl2.jar
+
+</pre>
+
+<p>jar　ファイルの関連付けができていれば， wcasl2.jar をダブルクリックすると起動します．</p>
+
+<h2>プログラムの入力</h2>     
+
+<p>「プログラム」という表示の下のテキストエリアにCASLⅡの文法に従ったプログラムを入力してください．</p>
+<h2>アセンブル</h2>
+<p>メニューの「プロジェクト」から「アセンブル」を選択します．アセンブル後，その結果をメッセージエリアに表示します．</p>
+<h2>シミュレート</h2>
+<p>メニューの「プロジェクト」から「シミュレート」を選択します．アセンブル後，シミュレータを起動します．
+アセンブルエラーがある場合は，シミュレータは起動しません．</p>
+<p>シミュレータの使い方は<a href="usage_sim.html">シミュレータの使い方ページ</a>を参照して下さい．</p>
+
+<h2>&nbsp;</h2>
+
+<hr>
+WCASL-Ⅱ ホームページ  <a href="http://www.ics.teikyo-u.ac.jp/wcasl2/">http://www.ics.teikyo-u.ac.jp/wcasl2/</a>
+</body>
+</html>

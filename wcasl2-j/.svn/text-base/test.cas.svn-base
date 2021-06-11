@@ -1,0 +1,11 @@
+; テストプログラム
+PRG	START
+	LD	GR1,AA
+	ADDA	GR1,BB
+	ST	GR1,CC
+	RET
+;データ
+AA	DC	5
+BB	DC	6
+CC	DS	1
+	END

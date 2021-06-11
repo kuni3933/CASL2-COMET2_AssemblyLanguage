@@ -1,24 +1,24 @@
-PRG0304   START
-          RPUSH
+PRG0304 START
+        RPUSH
 ;
-          LAD     GR3, DATA1     ; チェックサムを求める
-          SUBL    GR1, GR1       ; ゼロクリア
-          ADDL    GR1, 0, GR3
-          ADDL    GR1, 1, GR3
-          ADDL    GR1, 2, GR3     ; データの和を求める
-          XOR     GR1, =#FFFF
-          ADDL    GR1, =1        ; データの和の２の補数を求める
-          ST      GR1, 3, GR3     ; チェックサムを格納
+        LAD     GR3,DATA1     ; �`�F�b�N�T�������߂�
+        SUBL    GR1,GR1       ; �[���N���A
+        ADDL    GR1,0,GR3
+        ADDL    GR1,1,GR3
+        ADDL    GR1,2,GR3     ; �f�[�^�̘a�����߂�
+        XOR     GR1,=#FFFF
+        ADDL    GR1,=1        ; �f�[�^�̘a�̂Q�̕␔�����߂�
+        ST      GR1,3,GR3     ; �`�F�b�N�T�����i�[
 ;
-          LAD     GR4, DATA2     ; パリティを求める
-          XOR     GR2, GR2
-          XOR     GR2, 0, GR4
-          XOR     GR2, 1, GR4
-          XOR     GR2, 2, GR4
-          ST      GR2, 3, GR4     ; 各ビットで1が偶数個となるような値を求めて格納
+        LAD     GR4,DATA2     ; �p���e�B�����߂�
+        XOR     GR2,GR2
+        XOR     GR2,0,GR4
+        XOR     GR2,1,GR4
+        XOR     GR2,2,GR4
+        ST      GR2,3,GR4     ; �e�r�b�g��1�������ƂȂ�悤�Ȓl�����߂Ċi�[
 ;
-          RPOP
-          RET
-DATA1     DC      1234, 2468, 10000, 0
-DATA2     DC      1234, 1357, 10000, 0
-          END
+        RPOP
+        RET
+DATA1   DC      1234,2468,10000,0
+DATA2   DC      1234,1357,10000,0
+        END

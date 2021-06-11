@@ -1,16 +1,16 @@
-PRG0202   START
-          RPUSH
-          LAD     GR0, 65535
-          ST      GR0, DATA1
-          LD      GR1, DATA1       ;主記憶のDATA1の値を読込む
-          LD      GR2, DATA2
-          LD      GR3, DATA3
-          LD      GR4, DATA4
-          ST      GR4, DATA2       ;定数定義した領域に値を格納する
-          RPOP
-          RET
-DATA1     DS      1               ;1語分の領域を確保
-DATA2     DC      100             ;100という値を定義
-DATA3     DC      #0100, #0101     ;1行で2つの値を定義
-DATA4   DC      '0123456789'    ;文字列を定義
-          END
+PRG0202 START
+        RPUSH
+        LAD     GR0,65535
+        ST      GR0,DATA1
+        LD      GR1,DATA1       ;��L����DATA1�̒l��Ǎ���
+        LD      GR2,DATA2
+        LD      GR3,DATA3
+        LD      GR4,DATA4
+        ST      GR4,DATA2       ;�萔��`�����̈�ɒl���i�[����
+        RPOP
+        RET
+DATA1   DS      1               ;1�ꕪ�̗̈���m��
+DATA2   DC      100             ;100�Ƃ����l���`
+DATA3   DC      #0100,#0101     ;1�s��2�̒l���`
+DATA4   DC      '0123456789'    ;��������`
+        END

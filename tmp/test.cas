@@ -1,0 +1,15 @@
+TOI0205 START
+        RPUSH
+        IN    DATA,INLEN
+        LAD   GR1,DATA
+        LD    GR2,0,GR1
+        LD    GR3,2,GR1
+        ST    GR2,2,GR1
+        ST    GR3,0,GR1
+        OUT   DATA,OUTLEN
+        RPOP
+        RET    
+DATA    DS  256
+INLEN   DS  256
+OUTLEN  DC  3
+  END

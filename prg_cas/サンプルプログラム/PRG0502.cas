@@ -1,14 +1,14 @@
-PRG0502   START
-          RPUSH
+PRG0502 START
+        RPUSH
 ;
-          LAD     GR1, 1         ; è¶³ã™æ•°ã®åˆæœŸåŒ–
-          LAD     GR2, 0         ; åˆè¨ˆã®åˆæœŸåŒ–
-LOOP      ADDA    GR2, GR1       ; ç¹°ã‚Šè¿”ã—å‡¦ç†ã®é–‹å§‹
-          LAD     GR1, 1, GR1     ; ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
-          CPA     GR2, =100      ; åˆè¨ˆãŒ100ã‚ˆã‚Šå°ã•ã„ã‹ï¼Ÿ
-          JMI     LOOP          ; ç¹°ã‚Šè¿”ã—å‡¦ç†ã‚’ç¶šã‘ã‚‹ã‹åˆ¤å®šï¼ˆå¾Œåˆ¤å®šï¼‰
+        LAD     GR1,1         ; ‘«‚·”‚Ì‰Šú‰»
+        LAD     GR2,0         ; ‡Œv‚Ì‰Šú‰»
+LOOP    ADDA    GR2,GR1       ; ŒJ‚è•Ô‚µˆ—‚ÌŠJŽn
+        LAD     GR1,1,GR1     ; ƒCƒ“ƒNƒŠƒƒ“ƒg
+        CPA     GR2,=100      ; ‡Œv‚ª100‚æ‚è¬‚³‚¢‚©H
+        JMI     LOOP          ; ŒJ‚è•Ô‚µˆ—‚ð‘±‚¯‚é‚©”»’èiŒã”»’èj
 ;
-          RPOP
-          RET
+        RPOP
+        RET
 ;
-          END
+        END

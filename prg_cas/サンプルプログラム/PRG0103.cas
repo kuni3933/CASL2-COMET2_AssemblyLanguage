@@ -1,15 +1,15 @@
-;ãƒ—ãƒ­ã‚°ãƒ©ãƒ 0103
-PRG0103   START               ;ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’é–‹å§‹
-          RPUSH               ;æ±ºã¾ã‚Šæ–‡å¥
-          LAD     GR0, #1234   ;GR0ã«16é€²æ•°1234ã‚’æ ¼ç´
-          LAD     GR1, #5678   ;GR1ã«16é€²æ•°5678ã‚’æ ¼ç´
-          LAD     GR2, #9ABC   ;GR2ã«16é€²æ•°9ABCã‚’æ ¼ç´
-          LAD     GR3, #DEF0   ;GR3ã«16é€²æ•°DEF0ã‚’æ ¼ç´
-          LAD     GR4, 1234    ;GR4ã«10é€²æ•°1234ã‚’æ ¼ç´
-          LAD     GR5, 5678    ;GR5ã«10é€²æ•°5678ã‚’æ ¼ç´
-          LAD     GR6, 9876    ;GR6ã«10é€²æ•°9876ã‚’æ ¼ç´
-          LAD     GR7, 5432    ;GR7ã«10é€²æ•°5432ã‚’æ ¼ç´
-          LAD     GR1, #2468   ;GR1ã«16é€²æ•°2468ã‚’æ ¼ç´
-          RPOP                ;RPUSHã¨ãƒšã‚¢ã§æ±ºã¾ã‚Šæ–‡å¥
-          RET                 ;ãƒ—ãƒ­ã‚°ãƒ©ãƒ çµ‚äº†
-          END                 ;ãƒ—ãƒ­ã‚°ãƒ©ãƒ ä¸€ç•ªæœ€å¾Œã®æ±ºã¾ã‚Šæ–‡å¥
+;ƒvƒƒOƒ‰ƒ€0103
+PRG0103 START               ;ƒvƒƒOƒ‰ƒ€‚ðŠJŽn
+        RPUSH               ;Œˆ‚Ü‚è•¶‹å
+        LAD     GR0,#1234   ;GR0‚É16i”1234‚ðŠi”[
+        LAD     GR1,#5678   ;GR1‚É16i”5678‚ðŠi”[
+        LAD     GR2,#9ABC   ;GR2‚É16i”9ABC‚ðŠi”[
+        LAD     GR3,#DEF0   ;GR3‚É16i”DEF0‚ðŠi”[
+        LAD     GR4,1234    ;GR4‚É10i”1234‚ðŠi”[
+        LAD     GR5,5678    ;GR5‚É10i”5678‚ðŠi”[
+        LAD     GR6,9876    ;GR6‚É10i”9876‚ðŠi”[
+        LAD     GR7,5432    ;GR7‚É10i”5432‚ðŠi”[
+        LAD     GR1,#2468   ;GR1‚É16i”2468‚ðŠi”[
+        RPOP                ;RPUSH‚ÆƒyƒA‚ÅŒˆ‚Ü‚è•¶‹å
+        RET                 ;ƒvƒƒOƒ‰ƒ€I—¹
+        END                 ;ƒvƒƒOƒ‰ƒ€ˆê”ÔÅŒã‚ÌŒˆ‚Ü‚è•¶‹å

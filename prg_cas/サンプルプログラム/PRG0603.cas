@@ -1,24 +1,24 @@
-PRG0603   START
-          RPUSH
-          LAD     GR1, 3
-          LAD     GR2, 10
-          CALL    MULT            ; 10å€
-          CALL    MULT            ; 100å€
-          CALL    MULT            ; 1000å€
-          RPOP
-          RET
+PRG0603 START
+        RPUSH
+        LAD     GR1,3
+        LAD     GR2,10
+        CALL    MULT            ; 10”{
+        CALL    MULT            ; 100”{
+        CALL    MULT            ; 1000”{
+        RPOP
+        RET
 ;
-MULT      PUSH    0, GR2
-          PUSH    0, GR3
-          LD      GR3, GR1
-          LAD     GR1, 0           ;æŽ›ç®—çµæžœç”¨ã®ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’ã‚¯ãƒªã‚¢
-LOOP      CPA     GR2, =0
-          JZE     FIN
-          ADDA    GR1, GR3         ;æŽ›ã‘ã‚‰ã‚Œã‚‹æ•°ã‚’åŠ ãˆã‚‹
-          LAD     GR2, -1, GR2      ;æŽ›ã‘ã‚‹æ•°ã‚’1æ¸›ã‚‰ã™
-          JUMP    LOOP
-FIN       POP     GR3
-          POP     GR2
-          RET
+MULT    PUSH    0,GR2
+        PUSH    0,GR3
+        LD      GR3,GR1
+        LAD     GR1,0           ;Š|ŽZŒ‹‰Ê—p‚ÌƒŒƒWƒXƒ^‚ðƒNƒŠƒA
+LOOP    CPA     GR2,=0
+        JZE     FIN
+        ADDA    GR1,GR3         ;Š|‚¯‚ç‚ê‚é”‚ð‰Á‚¦‚é
+        LAD     GR2,-1,GR2      ;Š|‚¯‚é”‚ð1Œ¸‚ç‚·
+        JUMP    LOOP
+FIN     POP     GR3
+        POP     GR2
+        RET
 ;
-          END
+        END

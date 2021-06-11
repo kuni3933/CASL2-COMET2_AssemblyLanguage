@@ -1,14 +1,14 @@
-PRG0404   START
-          RPUSH
-          LD      GR1, =-1
-          LD      GR2, =0
-          CPA     GR1, =0               ; GR1„Å®0„ÇíÊØîËºÉ
-          JPL     COPY                 ; GR1„ÅåÊ≠£„Å™„ÇâLABEL„Å∏
-          JZE     COPY                 ; GR1 „Åå„Çº„É≠„Åß„ÇÇLABEL„Å∏
-          LD      GR2, =#000F
-          XOR     GR1, =#FFFF
-          ADDL    GR1, =1               ; Á¨¶Âè∑„ÇíÂèçËª¢
-COPY      LD      GR3, GR1
-          RPOP
-          RET
-          END
+PRG0404 START
+        RPUSH
+        LD      GR1,=-1
+        LD      GR2,=0
+        CPA     GR1,=0               ; GR1Ç∆0Çî‰är
+        JPL     COPY                 ; GR1Ç™ê≥Ç»ÇÁLABELÇ÷
+        JZE     COPY                 ; GR1 Ç™É[ÉçÇ≈Ç‡LABELÇ÷
+        LD      GR2,=#000F
+        XOR     GR1,=#FFFF
+        ADDL    GR1,=1               ; ïÑçÜÇîΩì]
+COPY    LD      GR3,GR1
+        RPOP
+        RET
+        END

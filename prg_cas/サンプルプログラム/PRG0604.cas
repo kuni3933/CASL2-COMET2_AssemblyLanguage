@@ -1,28 +1,28 @@
-PRG0604   START
-          RPUSH
-          OUT     DATA, LEN
-          LAD     GR1, PARM        ;パラメタ領域の先頭番地を設定
-          LAD     GR0, DATA
-          ST      GR0, 0, GR1
-          LD      GR0, LEN
-          ST      GR0, 1, GR1
-          CALL    LOWER           ;副プログラムを呼ぶ
-          OUT     DATA, LEN
-          RPOP
-          RET
+PRG0604 START
+        RPUSH
+        OUT     DATA,LEN
+        LAD     GR1,PARM        ;�p�����^�̈�̐擪�Ԓn��ݒ�
+        LAD     GR0,DATA
+        ST      GR0,0,GR1
+        LD      GR0,LEN
+        ST      GR0,1,GR1
+        CALL    LOWER           ;���v���O�������Ă�
+        OUT     DATA,LEN
+        RPOP
+        RET
 DATA    DC      'ABCDEF'
-LEN       DC      6
-PARM      DS      2               ;パラメタ領域確保
+LEN     DC      6
+PARM    DS      2               ;�p�����^�̈�m��
 ;
-LOWER     RPUSH
-          LD      GR2, 1, GR1       ;2番目のパラメタを読み出す
-          LD      GR1, 0, GR1       ;1番目のパラメタを読み出す
-LOOP      LD      GR3, 0, GR1
-          ADDA    GR3, =#20        ;大文字を小文字に変換
-          ST      GR3, 0, GR1
-          LAD     GR1, 1, GR1
-          SUBA    GR2, =1
-          JPL     LOOP
-          RPOP
-          RET
-          END
+LOWER   RPUSH
+        LD      GR2,1,GR1       ;2�Ԗڂ̃p�����^��ǂݏo��
+        LD      GR1,0,GR1       ;1�Ԗڂ̃p�����^��ǂݏo��
+LOOP    LD      GR3,0,GR1
+        ADDA    GR3,=#20        ;�啶�����������ɕϊ�
+        ST      GR3,0,GR1
+        LAD     GR1,1,GR1
+        SUBA    GR2,=1
+        JPL     LOOP
+        RPOP
+        RET
+        END

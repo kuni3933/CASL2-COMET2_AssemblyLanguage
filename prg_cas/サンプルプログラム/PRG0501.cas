@@ -1,18 +1,18 @@
-PRG0501   START
-          RPUSH
+PRG0501  START
+         RPUSH
 ;
-          LAD     GR1, 8           ; GR1初期化
-LOOP     LD      GR2,='0'        ; 繰り返し処理の始まり
-          ADDA    GR2, GR1         ; 数値を文字に変換
-          ST      GR2, CNT         ; 出力用バッファに追加
-          OUT     BUF, LEN         ; 出力
-          SUBA    GR1, =1          ; デクリメント
-          JNZ     LOOP            ; 繰り返し処理を続けるかどうか判定
+         LAD     GR1,8           ; GR1������
+LOOP     LD      GR2,='0'        ; �J��Ԃ������̎n�܂�
+         ADDA    GR2,GR1         ; ���l�𕶎��ɕϊ�
+         ST      GR2,CNT         ; �o�͗p�o�b�t�@�ɒǉ�
+         OUT     BUF,LEN         ; �o��
+         SUBA    GR1,=1          ; �f�N�������g
+         JNZ     LOOP            ; �J��Ԃ������𑱂��邩�ǂ�������
 ;
-          RPOP
-          RET
+         RPOP
+         RET
 ;
-LEN       DC      9
+LEN      DC      9
 BUF      DC      'Count = '
 CNT      DC      ' '
-          END
+         END

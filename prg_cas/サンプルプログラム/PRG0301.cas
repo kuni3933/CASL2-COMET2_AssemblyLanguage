@@ -1,25 +1,25 @@
-PRG0301   START
-          RPUSH
+PRG0301 START
+        RPUSH
 ;
-          LD      GR1, DATA        ; GR1ã«DATAç•ªåœ°ã®å€¤100ã‚’è¨­å®š
-          LAD     GR2, 50          ; GR2ã«50ã‚’è¨­å®š
-          ADDL    GR1, GR2         ; 100+50
+        LD      GR1,DATA        ; GR1‚ÉDATA”Ô’n‚Ì’l100‚ðÝ’è
+        LAD     GR2,50          ; GR2‚É50‚ðÝ’è
+        ADDL    GR1,GR2         ; 100+50
 ;
-          LD      GR3, =100        ; GR3ã«ãƒªãƒ†ãƒ©ãƒ«ã‚’ä½¿ã£ã¦100ã‚’è¨­å®š
-          ADDL    GR3, =50         ; 100+50 (ãƒªãƒ†ãƒ©ãƒ«ã‚’ä½¿ã£ã¦ã„ã‚‹)
+        LD      GR3,=100        ; GR3‚ÉƒŠƒeƒ‰ƒ‹‚ðŽg‚Á‚Ä100‚ðÝ’è
+        ADDL    GR3,=50         ; 100+50 (ƒŠƒeƒ‰ƒ‹‚ðŽg‚Á‚Ä‚¢‚é)
 ;
-          LAD     GR4, DATA2       ; GR4ã«DATA2ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’è¨­å®š
-          LD      GR5, 0, GR4       ; GR5ã«DATA2+0ç•ªåœ°ã®å€¤10000ã‚’èª­ã¿è¾¼ã‚€
-          ADDL    GR5, 1, GR4       ; GR5ã«DATA2+1ç•ªåœ°ã®å€¤20000ã‚’åŠ ç®—
-          ADDL    GR5, 2, GR4       ; GR5ã«DATA2+2ç•ªåœ°ã®å€¤30000ã‚’åŠ ç®—
+        LAD     GR4,DATA2       ; GR4‚ÉDATA2‚ÌƒAƒhƒŒƒX‚ðÝ’è
+        LD      GR5,0,GR4       ; GR5‚ÉDATA2+0”Ô’n‚Ì’l10000‚ð“Ç‚Ýž‚Þ
+        ADDL    GR5,1,GR4       ; GR5‚ÉDATA2+1”Ô’n‚Ì’l20000‚ð‰ÁŽZ
+        ADDL    GR5,2,GR4       ; GR5‚ÉDATA2+2”Ô’n‚Ì’l30000‚ð‰ÁŽZ
 ;
-          LD      GR6, DATA        ; GR6ã«100ã‚’è¨­å®š
-          SUBA    GR5, GR6         ; 60000-100
-          SUBA    GR5, =200        ; 59900-200ï¼ˆãƒªãƒ†ãƒ©ãƒ«ã‚’ä½¿ã£ã¦ã„ã‚‹ï¼‰
-          SUBA    GR5, 2, GR4       ; å®ŸåŠ¹ã‚¢ãƒ‰ãƒ¬ã‚¹DATA2+2ã®å€¤ã‚’æ¸›ç®—
+        LD      GR6,DATA        ; GR6‚É100‚ðÝ’è
+        SUBA    GR5,GR6         ; 60000-100
+        SUBA    GR5,=200        ; 59900-200iƒŠƒeƒ‰ƒ‹‚ðŽg‚Á‚Ä‚¢‚éj
+        SUBA    GR5,2,GR4       ; ŽÀŒøƒAƒhƒŒƒXDATA2+2‚Ì’l‚ðŒ¸ŽZ
 ;
-          RPOP
-          RET
-DATA      DC      100
-DATA2     DC      10000, 20000, 30000
-          END
+        RPOP
+        RET
+DATA    DC      100
+DATA2   DC      10000,20000,30000
+        END
