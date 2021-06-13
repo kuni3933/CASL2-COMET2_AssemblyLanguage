@@ -6,13 +6,20 @@ LOOP     LD      GR2,='0'        ; 繰り返し処理の始まり
          ADDA    GR2,GR1         ; 数値を文字に変換
          ST      GR2,CNT         ; 出力用バッファに追加
          OUT     BUF,LEN         ; 出力
+	   OUT     BR,BRLEN
          SUBA    GR1,=1          ; デクリメント
          JNZ     LOOP            ; 繰り返し処理を続けるかどうか判定
 ;
+	   OUT     FINISH,FLEN
          RPOP
          RET
 ;
 LEN      DC      9
 BUF      DC      'Count = '
 CNT      DC      ' '
+BR       DC	     '                                         '
+BRLEN	   DC	     41
+FINISH   DC      'Finish'
+FLEN	   DC      6
+;
          END

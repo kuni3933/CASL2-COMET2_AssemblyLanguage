@@ -1,9 +1,10 @@
 TOI0504 START
         RPUSH
 ;
-        LAD     GR1,ORG         ; もとの文字列を指すGR1を初期化
-        LAD     GR2,DST         ; 新しい文字列を指すGR2を初期化
+        LAD     GR1,ORG         ; もとの文字列を指すGR1を初期化(チェック対象文字のアドレス)
+        LAD     GR2,DST         ; 新しい文字列を指すGR2を初期化(条件合致した文字のST先アドレス)
         LAD     GR3,0           ; 処理した文字数
+;
 LOOP    CPA     GR3,ORGLEN      ; 繰り返し処理の開始．文字列の最後まで来たか？
         JZE     FIN             ; 繰り返し処理を続けるか判定（前判定）
         LD      GR4,0,GR1       ; 文字を取ってくる
@@ -12,16 +13,17 @@ LOOP    CPA     GR3,ORGLEN      ; 繰り返し処理の開始．文字列の最後まで来たか？
         CPA     GR4,='9'        ; 文字は'9'より大きいか？
         JPL     ADD
         JUMP    LOOPE
-ADD     ST      GR4,0,GR2       ; 新しい文字列に文字を追加
-        LAD     GR2,1,GR2       ; 新しい文字列を指すGR2をインクリメント
-LOOPE   LAD     GR1,1,GR1       ; もとの文字列を指すGR1をインクリメント
+ADD     ST      GR4,0,GR2       ; 新しい文字列に文字を追加(条件合致した文字をST)
+        LAD     GR2,1,GR2       ; 新しい文字列を指すGR2をインクリメント(ST先をインクリメントして更新)
+LOOPE   LAD     GR1,1,GR1       ; もとの文字列を指すGR1をインクリメント(チェック対象文字のアドレスをインクリメントして更新)
         ADDA    GR3,=1          ; 処理した文字数のインクリメント
         JUMP    LOOP
 ;
 FIN     OUT     ORG,ORGLEN      ; もとの文字列を表示
-        LAD     GR1,DST
-        SUBL    GR2,GR1
+        LAD     GR1,DST         ; 条件合致した文字の先頭アドレスをGR1にLAD
+        SUBL    GR2,GR1         ; 条件合致した文字の先頭アドレスGR1から、条件合致した文字の先頭アドレスGR1+1を引いて、出力文字列の長さを算出
         ST      GR2,DSTLEN      ; 新しい文字列の長さを求める
+	  OUT     BR,BRLEN        ; 改行
         OUT     DST,DSTLEN      ; 新しい文字列の表示
         RPOP
         RET
@@ -30,5 +32,7 @@ ORG     DC      '1A2BC34E5FG'
 ORGLEN  DC      11
 DST     DS      20
 DSTLEN  DS      1
+BR	  DC	    '                                       '
+BRLEN	  DC	    39
 ;
         END

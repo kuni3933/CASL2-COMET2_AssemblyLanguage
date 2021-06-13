@@ -5,7 +5,7 @@ PRG0504 START
 LOOP1   LD      GR2,GR1         ; LOOP1開始，GR2初期化
         LD      GR3,GR1         ; 足す数の初期化
         LD      GR4,=0          ; 演算結果を保存するレジスタ初期化
-LOOP2   ADDA    GR4,GR3         ; 和を求める
+LOOP2   ADDA    GR4,GR3         ; 和を求める(ADDA GR4,GR1 でも可能)
         SUBA    GR2,=1          ; GR2デクリメント
         JNZ     LOOP2           ; GR2が0になればLOOP2終了
         ADDA    GR1,=1          ; GR1インクリメント

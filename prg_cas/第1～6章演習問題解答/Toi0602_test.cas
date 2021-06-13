@@ -1,0 +1,37 @@
+TOI0602 START
+        RPUSH
+        LAD     GR2,DATA
+        LD      GR1,0,GR2
+        CALL    DISP
+        LD      GR1,1,GR2
+        CALL    DISP
+        RPOP
+        RET
+DATA    DC      #1234,#ABCD
+;
+DISP    RPUSH
+        CALL    DISP1           ;上位4ビットを16進数で出力
+        SLL     GR1,4           ;4ビット分左シフト
+        CALL    DISP1
+        SLL     GR1,4
+        CALL    DISP1
+        SLL     GR1,4
+        CALL    DISP1
+	  OUT     BR,BRLEN
+        RPOP
+        RET
+BR      DC      '                                              '
+BRLEN   DC      46
+;
+DISP1   RPUSH
+        AND     GR1,=#F000      ;上位4ビットだけ取り出す
+	  SRL     GR1,12
+        LD      GR2,HEX,GR1     ;16進数の文字に変換
+        ST      GR2,DATA1
+FIN     OUT     DATA1,LEN
+        RPOP
+        RET
+LEN     DC      1
+DATA1   DS      1
+HEX     DC      '0123456789ABCDEF'
+        END

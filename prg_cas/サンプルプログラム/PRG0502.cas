@@ -3,8 +3,10 @@ PRG0502 START
 ;
         LAD     GR1,1         ; 足す数の初期化
         LAD     GR2,0         ; 合計の初期化
+;
 LOOP    ADDA    GR2,GR1       ; 繰り返し処理の開始
-        LAD     GR1,1,GR1     ; インクリメント
+;       LAD     GR1,1,GR1     ; インクリメント(LADの場合)
+        ADDL    GR1,=1        ; インクリメント
         CPA     GR2,=100      ; 合計が100より小さいか？
         JMI     LOOP          ; 繰り返し処理を続けるか判定（後判定）
 ;

@@ -1,21 +1,31 @@
 TOI0506 START
         RPUSH
-        LAD     GR1,DATA
-        LD      GR2,0,GR1       ; 最初の文字をロード
-LOOP1   LD      GR3,=0          ; 出力文字列の長さを初期化
-        LAD     GR4,BUF         ; 出力文字格納領域
-LOOP2   CPA     GR2,='.'        ; ピリオドなら文の終了
+        LAD     GR1,DATA        ; GR1=DATA(のアドレス)
+        LD      GR2,0,GR1       ; GR2=検査対象の文字 最初の文字をロード
+;
+LOOP1   LD      GR3,=0          ; GR3=出力文字列の長さ を初期化
+        LAD     GR4,BUF         ; GR4=BUF 出力単語格納領域(のアドレス)
+;
+LOOP2   CPA     GR2,='.'        ; GR2(=検査対称文字)==ピリオド なら文の終了
         JZE     FIN
-        ST      GR2,0,GR4       ; 出力文字を格納
-        LAD     GR4,1,GR4       ; 格納先を 1 文字進める
-        LAD     GR3,1,GR3       ; 出力文字列の長さをインクリメント
-        LAD     GR1,1,GR1       ; 元の文字列を 1 文字進める
-        LD      GR2,0,GR1       ; 次の文字をロード
-        CPA     GR2,=' '        ; 間隔文字なら単語の終了
+        ST      GR2,0,GR4       ; GR2=出力文字 を GR4=BUF に格納
+        LAD     GR4,1,GR4       ; GR4=格納先BUFのアドレス をインクリメント
+        LAD     GR3,1,GR3       ; GR3=出力文字列の長さ をインクリメント
+        LAD     GR1,1,GR1       ; GR1=検査対象の文字列アドレス をインクリメント
+        LD      GR2,0,GR1       ; GR2=検査対称文字 をロード
+        CPA     GR2,=' '        ; GR2(=検査対称文字)==間隔文字 なら単語の終了
         JNZ     LOOP2
-        ST      GR3,LEN
-        OUT     BUF,LEN         ; 単語の出力
-        LAD     GR1,1,GR1       ; 元の文字列を 1 文字進める
+        ST      GR3,LEN         ; GR3=出力単語の長さ をLENにST
+        OUT     BUF,LEN         ; 単語BUF の出力
+;
+        LD      GR7,=50         ; GR7=ディスプレイ幅50 
+	  SUBL    GR7,LEN         ; GR7(=幅)-出力文字長(=LEN) で、brの長さをGR7に設定
+LOOPBR  OUT     BR,BRLEN        ; br出力ループ開始
+	  SUBL    GR7,BRLEN       ; GR7デクリメント
+        CPA     GR7,=0          ; GR7==0までループ判定
+        JPL     LOOPBR          ; 
+;
+        LAD     GR1,1,GR1       ; GR1=検査対象の文字列アドレス をインクリメント
         LD      GR2,0,GR1       ; 次の文字をロード
         JUMP    LOOP1
 FIN     ST      GR3,LEN
@@ -25,4 +35,6 @@ FIN     ST      GR3,LEN
 DATA    DC      'This is a pen.'
 BUF     DS      256
 LEN     DS      1
+BR      DC      ' '
+BRLEN   DC      1
         END

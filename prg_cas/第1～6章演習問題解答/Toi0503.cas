@@ -4,10 +4,11 @@ TOI0503  START
          LAD     GR1,0           ; カウンタ初期化
 LOOP     CPA     GR1,=8
          JPL     FIN
-         LD      GR2,='0'        ; 繰返し処理の始まり
+         LD      GR2,='0'        ; 繰返し処理の始まり(文字列化しておく)
          ADDA    GR2,GR1
          ST      GR2,CNT
          OUT     BUF,LEN
+	   OUT     BR,BRLEN
          ADDA    GR1,=1
          JUMP    LOOP
 ;
@@ -17,4 +18,6 @@ FIN      RPOP
 LEN      DC      9
 BUF      DC      'Count = '
 CNT      DC      ' '
+BR       DC      '                                         '
+BRLEN    DC      41
          END

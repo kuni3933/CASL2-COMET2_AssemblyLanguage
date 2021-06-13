@@ -6,9 +6,10 @@ LOOP     LD      GR2,='0'        ; ŒJ•Ô‚µˆ—‚ÌŽn‚Ü‚è
          ADDA    GR2,GR1
          ST      GR2,CNT
          OUT     BUF,LEN
+	   OUT     BR,BRLEN
          ADDA    GR1,=1
          CPA     GR1,=9
-         JMI     LOOP            GŒJ•Ô‚µˆ—‚ð‘±‚¯‚é‚©‚Ç‚¤‚©”»’è
+         JMI     LOOP            ; ŒJ•Ô‚µˆ—‚ð‘±‚¯‚é‚©‚Ç‚¤‚©”»’è
 ;
          RPOP
          RET
@@ -16,4 +17,6 @@ LOOP     LD      GR2,='0'        ; ŒJ•Ô‚µˆ—‚ÌŽn‚Ü‚è
 LEN      DC      9
 BUF      DC      'Count = '
 CNT      DC      ' '
+BR       DC      '                                         '
+BRLEN    DC      41
          END

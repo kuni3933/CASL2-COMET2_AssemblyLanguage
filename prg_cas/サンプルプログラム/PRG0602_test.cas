@@ -1,0 +1,29 @@
+PRG0602 START
+        RPUSH
+        LAD     GR1,#369C       ;GR1=元データ
+        LAD     GR2,0           ;GR2=取得データ
+;
+        CALL    DISP1           ;下位4ビットを16進数で出力
+        SLL     GR1,4           ;4ビット分左シフト
+        CALL    DISP1           ;下位4ビットを16進数で出力
+        SLL     GR1,4           ;4ビット分左シフト
+        CALL    DISP1           ;下位4ビットを16進数で出力
+        SLL     GR1,4           ;4ビット分左シフト
+        CALL    DISP1 
+        RPOP
+        RET
+;
+DISP1   PUSH    0,GR1           ;GR1をスタックに退避
+        PUSH    0,GR2           ;GR2をスタックに退避
+        AND     GR1,=#F000      ;上位4ビットだけ取り出す
+SLOOP   SRL     GR1,12          ;取り出した上位4bitを最下位に右シフト     
+        LD      GR2,HEX,GR1     ;16進数の文字に変換(HEX_0='0'=#0030)(文字コードが＃0030だから)
+        ST      GR2,DATA        ;GR2(=取得データ)をDATAに格納
+FIN     OUT     DATA,LEN        ;出力
+        POP     GR2             ;GR2をPOPで格納先が復活
+        POP     GR1             ;GR1をPOPで元データが復活
+        RET
+LEN     DC      1
+DATA    DS      1
+HEX     DC      '0123456789ABCDEF'
+        END

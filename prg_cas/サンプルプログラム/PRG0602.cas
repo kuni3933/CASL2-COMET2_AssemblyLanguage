@@ -7,7 +7,7 @@ PRG0602 START
         SRL     GR1,4
         CALL    DISP1
         SRL     GR1,4
-        CALL    DISP
+        CALL    DISP1
         RPOP
         RET
 ;

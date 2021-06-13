@@ -4,6 +4,7 @@
 TOI0604 START
         RPUSH
         OUT     DATA,LEN
+        OUT     BR,BRLEN
         LAD     GR1,PARM        ;パラメタ領域の先頭番地を設定
         LAD     GR0,DATA
         ST      GR0,0,GR1
@@ -15,7 +16,10 @@ TOI0604 START
         RET
 DATA    DC      'Casl2'
 LEN     DC      5
+BR      DC      '                                             '
+BRLEN   DC      45
 PARM    DS      2               ;パラメタ領域確保
+	  END
 ;
 ;文字列中の小文字を大文字に変換する副プログラム
 ;
@@ -27,7 +31,7 @@ LOOP    LD      GR3,0,GR1
         JMI     NOCHG           ;文字コードが'a'より大きいか？
         CPL     GR3,='z'
         JPL     NOCHG           ;文字コードが'z'より小さいか？
-        SUBA    GR3,=#20        ;小文字を大文字に変換
+        SUBA    GR3,=#0020        ;小文字を大文字に変換
         ST      GR3,0,GR1
 NOCHG   LAD     GR1,1,GR1
         SUBA    GR2,=1

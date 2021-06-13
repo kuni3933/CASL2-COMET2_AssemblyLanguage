@@ -1,11 +1,16 @@
 PRG0604 START
         RPUSH
         OUT     DATA,LEN
-        LAD     GR1,PARM        ;パラメタ領域の先頭番地を設定
-        LAD     GR0,DATA
-        ST      GR0,0,GR1
-        LD      GR0,LEN
-        ST      GR0,1,GR1
+        LD      GR0,=50
+        SUBL    GR0,LEN
+BRLOOP  OUT     BR,BRLEN
+        SUBL    GR0,=1
+        JNZ     BRLOOP
+        LAD     GR1,PARM        ;GR1=パラメタ領域の先頭アドレス を設定
+        LAD     GR0,DATA        ;GR0=DATAの先頭アドレス
+        ST      GR0,0,GR1       ;GR1(=PARM_0) <= (GR0(=DATA_0のアドレス))
+        LD      GR0,LEN         ;GR0 <= (LEN)
+        ST      GR0,1,GR1       ;GR1(=PARM_1) <= (LEN)
         CALL    LOWER           ;副プログラムを呼ぶ
         OUT     DATA,LEN
         RPOP
@@ -13,15 +18,22 @@ PRG0604 START
 DATA    DC      'ABCDEF'
 LEN     DC      6
 PARM    DS      2               ;パラメタ領域確保
+BR      DC      ' '
+BRLEN   DC      1
 ;
 LOWER   RPUSH
-        LD      GR2,1,GR1       ;2番目のパラメタを読み出す
-        LD      GR1,0,GR1       ;1番目のパラメタを読み出す
-LOOP    LD      GR3,0,GR1
-        ADDA    GR3,=#20        ;大文字を小文字に変換
-        ST      GR3,0,GR1
-        LAD     GR1,1,GR1
-        SUBA    GR2,=1
+        LD      GR2,1,GR1       ;GR2 <= GR1(=PARAM_1(=LEN)) - 2番目のパラメタを読み出す
+        LD      GR1,0,GR1       ;GR1 <= GR1(=PARAM_0(=DATA_0のアドレス)) - 1番目のパラメタを読み出す
+LOOP    LD      GR3,0,GR1       ;(DATA)をLD
+;追加
+	  CPL     GR3,='A'        ;'A'より大きい文字コードか否か
+	  JMI     NOCHG           ;
+	  CPL     GR3,='Z'        ;'Z'より小さい文字コードか否か
+	  JPL     NOCHG           ;
+        ADDA    GR3,=#0020      ;大文字を小文字に変換
+        ST      GR3,0,GR1       ;GR1(=PARAM_0(=DATA_0のアドレス)) <= GR3(変換DATA)
+NOCHG   LAD     GR1,1,GR1       ;処理対象を次のデータに移行(処理対象のデータアドレスをインクリメント)
+        SUBA    GR2,=1          ;GR2(PARM_1(LEN))かLDした文字列長 をデクリメント (カウンタデクリメント) 
         JPL     LOOP
         RPOP
         RET
